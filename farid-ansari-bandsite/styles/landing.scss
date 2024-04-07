@@ -1,0 +1,47 @@
+@use 'partials/displays' as *;
+@use 'partials/typekit' as *;
+@use 'partials/colors' as *;
+@use 'partials/anims' as *;
+@use 'partials/global' as *;
+
+
+.layout__cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include displayDesktop{
+        gap: 24px;
+    }
+
+    @include displayTablet{
+        gap: 24px;
+    }
+
+    @include displayMobile{
+        gap: $pad-mobile-between;
+    }
+}
+
+.cards{
+    @extend .layout__cards;
+
+    &__card{
+
+        @include displayDesktop{
+            width: auto;
+        }
+    
+        @include displayTablet{
+            width: auto;   
+        }
+    
+        @include displayMobile{
+            width: auto;
+        }
+
+        height: 200px;
+        border: black;
+        border-style: solid;
+    }
+}

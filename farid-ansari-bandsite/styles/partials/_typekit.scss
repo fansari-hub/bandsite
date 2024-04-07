@@ -1,55 +1,145 @@
 @use 'displays' as *;
+@use 'global' as *;
 
 
-h1{
+.type__pageHeader{
 
     @include displayDesktop{
         font-size: 3.75rem;
         font-weight: 700;
+        line-height: 1.13;
+        padding-top: $pad-desktop-header_before;
+        padding-bottom: $pad-desktop-header_after;
     }
 
     @include displayTablet{
         font-size: 3.75rem;
         font-weight: 700;
+        line-height: 1.13;
+        padding-top: $pad-tablet-header_before;
+        padding-bottom: $pad-tablet-header_after;
     }
 
     @include displayMobile{
         font-size: 1.5rem;
         font-weight: 700;
+        line-height: 1.33;
+        padding-top: $pad-mobile-header_before;
+        padding-bottom: $pad-mobile-header_after;
     }
 }
 
-h2{
+.type__sectionHeader{
 
     @include displayDesktop{
         font-size: 2.25rem;
         font-weight: 700;
+        line-height: 1.22;
+        padding-top: $pad-desktop-header_before;
+        padding-bottom: $pad-desktop-header_after;
     }
 
     @include displayTablet{
         font-size: 2.25rem;
         font-weight: 700;
+        line-height: 1.22;
+        padding-top: $pad-tablet-header_before;
+        padding-bottom: $pad-tablet-header_after;
     }
 
     @include displayMobile{
         font-size: 1.5rem;
         font-weight: 700;
+        line-height: 1.33;
+        padding-top: $pad-mobile-header_before;
+        padding-bottom: $pad-mobile-header_after;
+
     }
 }
 
-h3{
+.type__subHeader{
     @include displayDesktop{
         font-size: 1.5rem;
         font-weight: 600;
+        line-height: 1.33;
+        padding-top: $pad-desktop-header_before;
+        padding-bottom: $pad-desktop-header_after;
     }
 
     @include displayTablet{
         font-size: 1.5rem;
         font-weight: 600;
+        line-height: 1.33;
+        padding-top: $pad-tablet-header_before;
+        padding-bottom: $pad-tablet-header_after;
     }
 
     @include displayMobile{
         font-size: 0.875rem;
         font-weight: 600;
+        line-height: 1.57;
+        padding-top: $pad-mobile-header_before;
+        padding-bottom: $pad-mobile-header_after;
     }
+}
+
+.type__bodyText {
+    @include displayDesktop{
+        font-size: 0.875rem;
+        line-height: 1.57;
+        font-weight: 400;
+    }
+
+    @include displayTablet{
+        font-size: 0.875rem;
+        line-height: 1.57;
+        font-weight: 400;
+    }
+
+    @include displayMobile{
+        font-size: 0.8125rem;
+        line-height: 1.38;
+        font-weight: 400;
+    }
+
+
+}
+
+.type__footerText {
+    @include displayDesktop{
+        font-size: 0.875rem;
+        line-height: 1.42;
+        font-weight: 400;
+    }
+
+    @include displayTablet{
+        font-size: 0.875rem;
+        line-height: 1.42;
+        font-weight: 400;
+    }
+
+    @include displayMobile{
+        font-size: 0.8125rem;
+        line-height: 1.38;
+        font-weight: 400;
+    }
+}
+
+.type__label{
+    @include displayDesktop{
+        font-size: 0.75rem;
+        line-height: 0.6;
+        font-weight: 700;
+    }
+    @include displayTablet{
+        font-size: 0.75rem;
+        line-height: 0.6;
+        font-weight: 700;
+    }
+    @include displayMobile{
+        font-size: 0.625rem;
+        line-height: 2;
+        font-weight: 700;
+    }
+    
 }
