@@ -38,10 +38,24 @@
     
         @include displayMobile{
             width: auto;
+            padding-left: $grid-mobile-margin ;
+            padding-right: $grid-mobile-margin;
         }
 
-        height: 200px;
-        border: black;
-        border-style: solid;
+        &__image{
+
+            @include displayDesktop{
+                width: 200px;
+            }
+        
+            @include displayTablet{
+                width: 200px;   
+            }
+        
+            @include displayMobile{
+                width: 100%;
+            }
+
+        }
     }
 }
