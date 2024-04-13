@@ -1,6 +1,25 @@
 @use 'displays' as *;
-@use 'global' as *;
+@use 'var' as *;
 @use 'colors' as *;
+
+@font-face{
+    font-family: 'Avenir';
+    src: url("../assets/fonts/AvenirNextLTPro-Regular.otf") format('openType');
+}
+
+@font-face{
+    font-family: 'Avenir-Bold';
+    src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format('openType');
+}
+@font-face{
+    font-family: 'Avenir-Demi';
+    src: url("../assets/fonts/AvenirNextLTPro-Demi.otf") format('openType');
+}
+
+:root {
+    font-family: 'Avenir';
+    //font-size: 20px;
+}
 
 
 .type__siteTitle{
@@ -56,13 +75,16 @@
         padding-top: $pad-mobile-header_before;
         padding-bottom: $pad-mobile-header_after;
     }
+    &--footer{
+        padding: 0px;
+        margin: 0px;
+    }
 }
 
 .type__sectionHeader{
 
     padding-left: $pad-L4;
     padding-right: $pad-L4;
-    //color: magenta;
 
     @include displayDesktop{
         font-size: 2.25rem;
@@ -86,6 +108,11 @@
         line-height: 1.33;
         padding-top: $pad-mobile-header_before;
         padding-bottom: $pad-mobile-header_after;
+    }
+
+    &--footer{
+        padding: 0px;
+        margin: 0px;
     }
 }
 
@@ -117,6 +144,11 @@
         padding-top: $pad-mobile-header_before;
         padding-bottom: $pad-mobile-header_after;
     }
+
+    &--footer{
+        padding: 0px;
+        margin: 0px;
+    }
 }
 
 .type__bodyText {
@@ -140,14 +172,11 @@
         line-height: 1.38;
         font-family: 'Avenir';
     }
-
-
 }
 
 .type__footerText {
-    padding-left: $pad-L4;
-    padding-right: $pad-L4;
     margin-bottom: 0px;
+    
     @include displayDesktop{
         font-size: 0.875rem;
         line-height: 1.42;

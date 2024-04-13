@@ -1,58 +1,12 @@
-@use 'displays' as *;
+@use 'anims' as *;
 @use 'colors' as *;
+@use 'displays' as *;
+@use 'typekit' as *;
+@use 'var' as *;
 
-@font-face{
-    font-family: 'Avenir';
-    src: url("../assets/fonts/AvenirNextLTPro-Regular.otf") format('openType');
-}
-
-@font-face{
-    font-family: 'Avenir-Bold';
-    src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format('openType');
-}
-@font-face{
-    font-family: 'Avenir-Demi';
-    src: url("../assets/fonts/AvenirNextLTPro-Demi.otf") format('openType');
-}
-
-:root {
-    font-family: 'Avenir';
-    font-size: 20px;
-}
-
-$pad-L1: 4px;
-$pad-L2: 8px;
-$pad-L3: 16px;
-$pad-L4: 32px;
-$pad-L5: 40px;
-$pad-L6: 48px;
-$pad-L7: 56px;
-$pad-L8: 64px;
-$pad-L9: 80px;
-
-$pad-desktop-header_before: 48px;
-$pad-desktop-header_after: 36px;
-$pad-desktop-between: 36px;
-
-$pad-tablet-header_before: 48px;
-$pad-tablet-header_after: 36px;
-$pad-tablet-between: 36px;
-
-$pad-mobile-header_before: 24px;
-$pad-mobile-header_after: 16px;
-$pad-mobile-between: 16px;
-
-$grid-desktop-gutter: 24px;
-$grid-desktop-column: 63px;
-$grid-desktop-margin: auto;
-
-$grid-tablet-gutter: 24px;
-$grid-tablet-column: auto;
-$grid-tablet-margin: 36px;
-
-$grid-mobile-gutter: 16px;
-$grid-mobile-column: auto;
-$grid-mobile-margin: 36px;
+// *{
+//     border: 1px dotted black;
+// }
 
 body{
     margin: 0px;
@@ -67,14 +21,29 @@ html{
 .head{
     background-color: $colPrimary-Black;
     color: $colPrimary-White;
+    padding-left: $pad-L4;
+    padding-right: $pad-L4;
     display: flex;
-    flex-direction: column;
     margin: 0px;
-    padding: 0px;
+    
+
+    @include displayDesktop{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include displayTablet{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include displayMobile{
+        flex-direction: column;
+    }
     
     &__logo{
-        align-self: center;
         text-align: center;
+
         &__image{
             margin-top: 24px;
             margin-bottom: 24px;
@@ -82,6 +51,22 @@ html{
         }
     }
     &__nav{       
+        @include displayDesktop{
+            padding-left: $pad-desktop-between;
+            flex-grow: 0.25;
+            align-self: baseline;
+        }
+    
+        @include displayTablet{
+            padding-left: $pad-tablet-between;
+            flex-grow: 0.25;
+            align-self: flex-end;
+        }
+    
+        @include displayMobile{
+            flex-grow: 0;
+
+        }
         &__navbar{
             display: flex;
             justify-content: space-around;
@@ -99,9 +84,11 @@ html{
             }
         }
     }
+}
 
-    &__hero{
+.hero{
         height: 300px;
+        color: $colPrimary-White;
         padding-left: $pad-L4;
         padding-right: $pad-L4;
         margin: 0px;
@@ -111,80 +98,113 @@ html{
         display: flex;
         align-items: center;
         font-family: 'Avenir-Demi';
-    }
 }
 
+
 .footer{
+    margin-top: $pad-mobile-between;
+    padding-left: $pad-L4;
+    padding-right: $pad-L4; 
+    padding-top: $pad-mobile-header_before;
+    padding-bottom: $pad-mobile-header_after;
     background-color: $colPrimary-Black;
     color: $colPrimary-White;
-    margin-top: $pad-mobile-between;
-    padding-bottom: $pad-mobile-between;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    row-gap: $pad-mobile-between;
+    gap: $pad-mobile-between;
+
+    @include displayDesktop{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    
+        @include displayTablet{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    
+        @include displayMobile{
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
 
     &__social{
         display: flex;
-        align-items: center;
-        justify-content: flex;
-
+        column-gap: $pad-mobile-between;
+        row-gap: $pad-mobile-between;
+        
         @include displayDesktop{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    
+        @include displayTablet{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    
+        @include displayMobile{
+            flex-direction: column;
             flex-wrap: nowrap;
-         }
-     
-         @include displayTablet{
-             flex-wrap: nowrap;
-         }
-     
-         @include displayMobile{
-             flex-wrap: wrap;
-         }
+        }
 
         &__title{
-            margin: 0px;
+            background-color: none;
         }
         
         &__media{
             display: flex;
-            margin-left: $pad-L4;
-            margin-right: $pad-L4;
             align-items: center;
+            gap: 40px;
             &__icon{
-                margin-right: $pad-L7;
                 height: 40px;
             }
         }
-
-        &__logo{
-            flex-grow: 1;
-            margin-left: $pad-L4;
-            margin-right: $pad-L4;
-            text-align: right;
-            &__image{
-                width: 180px;
-                padding: 0px;
-            }
-        }
-
     }
-    
-    
-
-    
+        
     &__contactList{
         display: flex;
         @include displayDesktop{
             flex-wrap: nowrap;
-         }
-     
-         @include displayTablet{
-             flex-wrap: nowrap;
-         }
-     
-         @include displayMobile{
-             flex-wrap: wrap;
-         }
+            }
+        
+            @include displayTablet{
+                flex-wrap: nowrap;
+            }
+        
+            @include displayMobile{
+                flex-wrap: wrap;
+            }
 
         &__contact{
             flex-grow: 1;
         }
     }
-   
+    
+    &__logo{
+        @include displayDesktop{
+                order:0;
+            }
+        
+            @include displayTablet{
+                order:0;
+            }
+        
+            @include displayMobile{
+                order:1;
+            }
+        &__image{
+            width: 180px;
+            padding: 0px;
+        }
+    }
+    
+    &__copyright{
+        flex-basis: 100%;
+        padding: 0px;
+        margin: 0px;
+        order: 2;
+    }
 }
