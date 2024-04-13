@@ -1,4 +1,24 @@
 @use 'displays' as *;
+@use 'colors' as *;
+
+@font-face{
+    font-family: 'Avenir';
+    src: url("../assets/fonts/AvenirNextLTPro-Regular.otf") format('openType');
+}
+
+@font-face{
+    font-family: 'Avenir-Bold';
+    src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format('openType');
+}
+@font-face{
+    font-family: 'Avenir-Demi';
+    src: url("../assets/fonts/AvenirNextLTPro-Demi.otf") format('openType');
+}
+
+:root {
+    font-family: 'Avenir';
+    font-size: 20px;
+}
 
 $pad-L1: 4px;
 $pad-L2: 8px;
@@ -14,16 +34,13 @@ $pad-desktop-header_before: 48px;
 $pad-desktop-header_after: 36px;
 $pad-desktop-between: 36px;
 
-
 $pad-tablet-header_before: 48px;
 $pad-tablet-header_after: 36px;
 $pad-tablet-between: 36px;
 
-
 $pad-mobile-header_before: 24px;
 $pad-mobile-header_after: 16px;
 $pad-mobile-between: 16px;
-
 
 $grid-desktop-gutter: 24px;
 $grid-desktop-column: 63px;
@@ -36,3 +53,138 @@ $grid-tablet-margin: 36px;
 $grid-mobile-gutter: 16px;
 $grid-mobile-column: auto;
 $grid-mobile-margin: 36px;
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    margin: 0px;
+    padding: 0px;
+}
+
+.head{
+    background-color: $colPrimary-Black;
+    color: $colPrimary-White;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    
+    &__logo{
+        align-self: center;
+        text-align: center;
+        &__image{
+            margin-top: 24px;
+            margin-bottom: 24px;
+            width: 180px;
+        }
+    }
+    &__nav{       
+        &__navbar{
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            &__item{  
+                text-align: center;
+                margin: 0px;
+                padding: 0px 0px 20px 0px;
+                flex-grow: 1;
+                &--active{
+                    border-bottom: 5px solid;
+                }
+            }
+        }
+    }
+
+    &__hero{
+        height: 300px;
+        padding-left: $pad-L4;
+        padding-right: $pad-L4;
+        margin: 0px;
+        background-image: url("../assets/images/hero-bio.jpg");
+        background-size: cover;
+        background-position-y: -20px;
+        display: flex;
+        align-items: center;
+        font-family: 'Avenir-Demi';
+    }
+}
+
+.footer{
+    background-color: $colPrimary-Black;
+    color: $colPrimary-White;
+    margin-top: $pad-mobile-between;
+    padding-bottom: $pad-mobile-between;
+
+    &__social{
+        display: flex;
+        align-items: center;
+        justify-content: flex;
+
+        @include displayDesktop{
+            flex-wrap: nowrap;
+         }
+     
+         @include displayTablet{
+             flex-wrap: nowrap;
+         }
+     
+         @include displayMobile{
+             flex-wrap: wrap;
+         }
+
+        &__title{
+            margin: 0px;
+        }
+        
+        &__media{
+            display: flex;
+            margin-left: $pad-L4;
+            margin-right: $pad-L4;
+            align-items: center;
+            &__icon{
+                margin-right: $pad-L7;
+                height: 40px;
+            }
+        }
+
+        &__logo{
+            flex-grow: 1;
+            margin-left: $pad-L4;
+            margin-right: $pad-L4;
+            text-align: right;
+            &__image{
+                width: 180px;
+                padding: 0px;
+            }
+        }
+
+    }
+    
+    
+
+    
+    &__contactList{
+        display: flex;
+        @include displayDesktop{
+            flex-wrap: nowrap;
+         }
+     
+         @include displayTablet{
+             flex-wrap: nowrap;
+         }
+     
+         @include displayMobile{
+             flex-wrap: wrap;
+         }
+
+        &__contact{
+            flex-grow: 1;
+        }
+    }
+   
+}

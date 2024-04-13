@@ -7,60 +7,119 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1 class="type__pageHeader">BANDSITE</h1>
-        <navigation>
-            <ul>
-                <li>Biography</li>
-                <li>Shows</li>
+    <header class="head">
+        <navigation class = "head__nav">
+            <div class = "head__logo">
+                <img class = "head__logo__image" src="./assets/logos/Logo-bandsite.svg"/>
+            </div>            
+            <ul class = "head__nav__navbar">
+                <li class = "head__nav__navbar__item  head__nav__navbar__item--active">Biography</li>
+                <li class="head__nav__navbar__item">Shows</li>
             </ul>
         </navigation>
-        <div>
-            <h2 class="type__sectionHeader">The Bees Knees</h2>
+        <div class="head__hero">
+            <h2 class="head__hero__bandTitle">The Bees Knees</h2>
         </div>
     </header>
-    <section>
-        <h2 class="type__sectionHeader">About the Musicians</h2>
-        <img src="./assets/images/hero-bio.jpg">
-        <p>We push each other to be the best. It’s not uncommon for one of us to say ‘this needs to be better, back to the drawing board’”** - Lead vocalist of The Bees Knees</p>
-        <h3 class="type__subHeader">The Bees Knees</h3>     
-        <p class="type__bodyText">
-            The Bees Knees is a pop rock band originating from San Francisco, California. The band consists a dynamic lineup featuring two lead vocalists, two guitarists, a bassist, a keyboardist and a drummer. The band achieved its first commercial success as an unsigned act, drawing attention from their future manager. Having extensive experience working with both new and seasoned acts, the manager was confident the band could succeed even further with more support, pushing The Bees Knees to sign with a well known record label.
-        </p> 
-        <p class="type__bodyText">
-            From there, the band has soared, gaining international recognition and ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band’s original and organic attitude, solidifying their place as one of the hottest and fastest up and coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn to their candid and authentic performances on stage. The Bees Knees are currently recording their second studio album, looking to be released in early 2024.
-        </p> 
+    <section class="band">
+        <h2 class="type__pageHeader band__title">About the Musicians</h2>
+        <div class="band__imgCont">
+        </div>
+        <p class = "type__subHeader">We push each other to be the best. It’s not uncommon for one of us to say ‘this needs to be better, back to the drawing board’”
+        <br><br>- Lead vocalist of The Bees Knees</p>
+        <h3 class="type__subHeader">The Bees Knees</h3>
+        <div class="columns">
+            <div class ="columns__column">
+                <p class="type__bodyText">
+                    The Bees Knees is a pop rock band originating from San Francisco, California. The band consists a dynamic lineup featuring two lead vocalists, two guitarists, a bassist, a keyboardist and a drummer. The band achieved its first commercial success as an unsigned act, drawing attention from their future manager. Having extensive experience working with both new and seasoned acts, the manager was confident the band could succeed even further with more support, pushing The Bees Knees to sign with a well known record label.
+                </p> 
+            </div>
+            <div class ="columns__column">
+                <p class="type__bodyText">
+                    From there, the band has soared, gaining international recognition and ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band’s original and organic attitude, solidifying their place as one of the hottest and fastest up and coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn to their candid and authentic performances on stage. The Bees Knees are currently recording their second studio album, looking to be released in early 2024.
+                </p> 
+            </div>
+        </div>     
+        
+        
     </section>
-
-    <section class="cards">
-        <h2 class="type__sectionHeader">Photo Gallery</h2>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-1.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-2.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-3.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-4.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-5.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-6.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-7.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-8.jpg"/>
-        </div>
-        <div class="cards__card">
-            <img class="cards__card__image" src="./assets/images/Photo-gallery-9.jpg"/>
+    
+    <section class="gallery">
+        <h2 class="type__sectionHeader gallery__title">Photo Gallery</h2>
+        <div class="gallery__cards">
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-1.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-2.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-3.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-4.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-5.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-6.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-7.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-8.jpg"/>
+            </div>
+            <div class="gallery__cards__card">
+                <img class="gallery__cards__card__image" src="./assets/images/Photo-gallery-9.jpg"/>
+            </div>
         </div>
     </section>
 </body>
+<footer class="footer">
+    <div class="footer__social">
+        <h2 class="type__sectionHeader footer__social__title">Get In Touch</h2>
+        <div class="footer__social__media">
+            <img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-instagram.svg"/>
+            <img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-facebook.svg"/>
+            <img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-twitter.svg"/>
+        </div>
+        <div class="footer__social__logo">
+            <img class = "footer__social__logo__image" src="./assets/logos/Logo-bandsite.svg"/>
+        </div>
+    </div>
+    <div class="footer__contactList">
+        <div class="footer__contactList__contact">
+            <h3 class="type__subHeader">The Bees Knees Management</h3>
+            <p class="type__footerText">
+                503 Boardway Penthouse<BR>
+                New York, NY 10012, USA
+            </p>
+            <p class="type__footerText">info@thebeesknees.com</p>    
+        </div>
+        
+        <div class="footer__contactList__contact">
+            <h3 class="type__subHeader">Limitless Artist Group</h3>
+            <p class="type__footerText">
+                Booking Agent for<BR>
+                US / South America / Japan
+            </p>
+            <p class="type__footerText">bookings@Limitlessag.com
+        </div>
+        
+        <div class="footer__contactList__contact">
+            <h3 class="type__subHeader">ARCH Entertainment</h3>
+            <p class="type__footerText">
+                Booking Agent for<BR>
+                UK / EU / AU
+            </p>
+            <p class="type__footerText">bookings@archenternainment.com
+        </div>
+        
+    </div>
+    
+    <p class="type__footerText"><br></p>
+    <p class="type__footerText">Copyright The Bees Knees © 2023 All Rights Reserved</p>
+</footer>
 </html>

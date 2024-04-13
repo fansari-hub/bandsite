@@ -5,57 +5,106 @@
 @use 'partials/global' as *;
 
 
-.layout__cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    @include displayDesktop{
-        gap: 24px;
+.band{
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+    &__imgCont{
+        align-self: center;
+        height: 270px;
+        background-image: url("../assets/images/band.jpg");
+        background-size: cover;
+        background-position-y: -70px;
+        margin-left: $pad-L4;
+        margin-right: $pad-L4;
     }
-
-    @include displayTablet{
-        gap: 24px;
-    }
-
-    @include displayMobile{
-        gap: $pad-mobile-between;
+    &__title{
+        margin: 0px;
+        //font-family: 'Avenir-Demi';
     }
 }
 
-.cards{
-    @extend .layout__cards;
+.columns{
+    display: flex;
 
-    &__card{
+    @include displayDesktop{
+        flex-wrap: nowrap;
+     }
+ 
+     @include displayTablet{
+         flex-wrap: nowrap;
+     }
+ 
+     @include displayMobile{
+         flex-wrap: wrap;
+     }
 
+    &__column{
+        flex-grow:1;
+    }
+}
+
+.gallery{
+    background-color: $colSecondary-Albaster;
+    margin: 0px;
+
+    &__title{
+        margin: 0px;
+        //font-family: 'Avenir-Demi';
+    }
+
+    &__cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    
         @include displayDesktop{
-            width: auto;
+           gap: 24px;
         }
     
         @include displayTablet{
-            width: auto;   
+            gap: 24px;
         }
     
         @include displayMobile{
-            width: auto;
-            padding-left: $grid-mobile-margin ;
-            padding-right: $grid-mobile-margin;
+            gap: $pad-mobile-between;
         }
-
-        &__image{
-
+    
+        &__card{
             @include displayDesktop{
-                width: 200px;
+                width: 400px;
+                padding-left: $grid-desktop-margin ;
+                padding-right: $grid-desktop-margin;
             }
         
             @include displayTablet{
-                width: 200px;   
+                width: 300px;   
+                padding-left: $grid-tablet-margin ;
+                padding-right: $grid-tablet-margin;
             }
         
             @include displayMobile{
                 width: 100%;
+                padding-left: $grid-mobile-margin ;
+                padding-right: $grid-mobile-margin;
             }
-
+    
+            &__image{
+                @include displayDesktop{
+                    width: 100%;
+                }
+            
+                @include displayTablet{
+                    width: 100%;   
+                }
+            
+                @include displayMobile{
+                      width: 100%;
+                }
+    
+            }
         }
     }
+
 }
