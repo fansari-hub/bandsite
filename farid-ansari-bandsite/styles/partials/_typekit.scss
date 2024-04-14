@@ -18,39 +18,9 @@
 
 :root {
     font-family: 'Avenir';
-    //font-size: 20px;
-}
-
-
-.type__siteTitle{
-    padding-left: $pad-L4;
-    padding-right: $pad-L4;
-    font-weight: 400;
-    //color: orange;
-
-    @include displayDesktop{
-        font-size: 3.75rem;
-        font-family: 'Avenir';
-        line-height: 1.13;
-    }
-
-    @include displayTablet{
-        font-size: 3.75rem;
-        font-family: 'Avenir';
-        line-height: 1.13;
-    }
-
-    @include displayMobile{
-        font-size: 1.5rem;
-        font-family: 'Avenir';
-        line-height: 1.33;
-    }
 }
 
 .type__pageHeader{
-    padding-left: $pad-L4;
-    padding-right: $pad-L4;
-    //color:blue;
 
     @include displayDesktop{
         font-size: 3.75rem;
@@ -83,9 +53,6 @@
 
 .type__sectionHeader{
 
-    padding-left: $pad-L4;
-    padding-right: $pad-L4;
-
     @include displayDesktop{
         font-size: 2.25rem;
         font-family: 'Avenir-Demi';
@@ -117,10 +84,6 @@
 }
 
 .type__subHeader{
-    padding-left: $pad-L4;
-    padding-right: $pad-L4;
-    //color:green;
-
     @include displayDesktop{
         font-size: 1.5rem;
         font-family: 'Avenir-Demi';
@@ -148,12 +111,28 @@
     &--footer{
         padding: 0px;
         margin: 0px;
+
+        @include displayDesktop{
+            font-size: 1.0rem;
+            font-family: 'Avenir-Demi';
+            line-height: 1.33;
+        }
+    
+        @include displayTablet{
+            font-size: 1.0rem;
+            font-family: 'Avenir';
+            line-height: 1.33;
+        }
+    
+        @include displayMobile{
+            font-size: 0.875rem;
+            font-family: 'Avenir-Demi';
+            line-height: 1.57;
+        }
     }
 }
 
 .type__bodyText {
-    padding-left: $pad-L4;
-    padding-right: $pad-L4;
 
     @include displayDesktop{
         font-size: 0.875rem;
