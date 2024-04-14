@@ -1,0 +1,98 @@
+@use 'colors' as *;
+@use 'displays' as *;
+
+// Animations in Use for this project
+
+@keyframes cardHover{
+    100%{
+        box-shadow: -5px -5px 4px rgba(0,0,0,0.4);
+        transform:  translate(5px, 5px)
+                    scale(1.05,1.05);
+    }
+}
+
+@keyframes reveal-side{
+    from {
+		opacity: 0;
+		//clip-path: inset(50% 10% 50% 10%);
+        transform: translate(-75%, 0px);
+
+	}
+	to {
+		opacity: 1;
+		//clip-path: inset(0% 0% 0% 0%);
+        transform: translate(0px, 0px);
+	}
+}
+
+@keyframes reveal-up{
+    from {
+		opacity: 0;
+		//clip-path: inset(50% 10% 50% 10%);
+        transform: translate(0px, 30%);
+
+	}
+	to {
+		opacity: 1;
+		//clip-path: inset(0% 0% 0% 0%);
+        transform: translate(0px, 0px);
+	}
+}
+
+@mixin revealing-animation{
+    //Begin revealing-animation mixin
+    view-timeline-name: --revealing-element;
+    view-timeline-axis: block;
+
+    @media (min-width: $breakpoint-desktop-s){
+        animation: linear reveal-up both;
+        animation-timeline: --revealing-element;
+        animation-range: entry 50% cover 30%;
+    }
+
+    @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
+        animation: linear reveal-side both;
+        animation-timeline: --revealing-element;
+        animation-range: entry 50% cover 30%;
+    }
+    
+    @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
+        animation: linear reveal-side both;
+        animation-timeline: --revealing-element;
+        animation-range: entry 50% cover 30%;
+    }
+
+    //end revealing-animation mixin
+}
+
+
+
+//Animations not in used for this project yet (remove later)
+
+@keyframes shiftBackground{
+    0%{
+        background-position-y:-690px;        
+    }
+    100%{
+        background-position-y:0px;
+    }
+}
+
+@keyframes buttonHover{
+    100%{
+        transform:scale(1.2);
+        background-color: $colPrimary-Black;
+        color: $colPrimary-Silver;
+    }
+}
+
+
+
+@keyframes navHover{
+    100%{
+        color: $colPrimary-White;
+        text-decoration: underline;
+    }
+}
+
+

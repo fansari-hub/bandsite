@@ -103,21 +103,8 @@ html{
         background-position-y: -20px;
         display: flex;
         align-items: center;
+        @include paddingsL9L6L3;
 
-        @include displayDesktop{
-            padding-left: $pad-L9;
-            padding-right: $pad-L9;
-         }
-     
-         @include displayTablet{
-            padding-left: $pad-L6;
-            padding-right: $pad-L6;
-         }
-     
-         @include displayMobile{
-            padding-left: $pad-L3;
-            padding-right: $pad-L3;
-         }
         &__bandTitle{
             font-family: 'Avenir-Demi';
             padding: 0px;
@@ -135,43 +122,29 @@ html{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    @include paddingsL9L4L3;
     
 
     @include displayDesktop{
-        padding-left: $pad-L9;
-        padding-right: $pad-L9;
         row-gap: $pad-desktop-between;
         gap: $pad-desktop-between;
+        flex-direction: row;
+        flex-wrap: wrap;
      }
  
      @include displayTablet{
-        padding-left: $pad-L4;
-        padding-right: $pad-L4;
         row-gap: $pad-tablet-between;
         gap: $pad-tablet-between;
+        flex-direction: row;
+        flex-wrap: wrap;
      }
  
      @include displayMobile{
-        padding-left: $pad-L3;
-        padding-right: $pad-L3;
         row-gap: $pad-mobile-between;
         gap: $pad-mobile-between;
+        flex-direction: column;
+        flex-wrap: nowrap;
      }
-
-    @include displayDesktop{
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    
-        @include displayTablet{
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    
-        @include displayMobile{
-            flex-direction: column;
-            flex-wrap: nowrap;
-        }
 
     &__social{
         display: flex;
@@ -234,17 +207,7 @@ html{
             }
 
         &__contact{
-            @include displayDesktop{
-                //padding-top: $pad-desktop-header_before;
-                }
-            
-            @include displayTablet{
-                  //  padding-top: $pad-tablet-header_before;
-                }
-            
-            @include displayMobile{
-                    //padding-top: $pad-mobile-header_before;
-                }
+            background-color: none;
         }
     }
     

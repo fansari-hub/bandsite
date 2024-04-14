@@ -200,6 +200,53 @@
   }
 }
 
+@keyframes cardHover {
+  100% {
+    box-shadow: -5px -5px 4px rgba(0, 0, 0, 0.4);
+    transform: translate(5px, 5px) scale(1.05, 1.05);
+  }
+}
+@keyframes reveal-side {
+  from {
+    opacity: 0;
+    transform: translate(-75%, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translate(0px, 30%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes shiftBackground {
+  0% {
+    background-position-y: -690px;
+  }
+  100% {
+    background-position-y: 0px;
+  }
+}
+@keyframes buttonHover {
+  100% {
+    transform: scale(1.2);
+    background-color: #323232;
+    color: #AFAFAF;
+  }
+}
+@keyframes navHover {
+  100% {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+}
 body {
   margin: 0px;
   padding: 0px;
@@ -296,8 +343,8 @@ html {
 }
 @media (min-width: 1280px) {
   .hero {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -330,42 +377,42 @@ html {
 }
 @media (min-width: 1280px) {
   .footer {
-    padding-left: 80px;
-    padding-right: 80px;
-    row-gap: 24px;
-    gap: 24px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .footer {
     padding-left: 32px;
     padding-right: 32px;
-    row-gap: 24px;
-    gap: 24px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .footer {
     padding-left: 16px;
     padding-right: 16px;
-    row-gap: 16px;
-    gap: 16px;
   }
 }
 @media (min-width: 1280px) {
   .footer {
+    row-gap: 24px;
+    gap: 24px;
     flex-direction: row;
     flex-wrap: wrap;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .footer {
+    row-gap: 24px;
+    gap: 24px;
     flex-direction: row;
     flex-wrap: wrap;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .footer {
+    row-gap: 16px;
+    gap: 16px;
     flex-direction: column;
     flex-wrap: nowrap;
   }
@@ -435,6 +482,9 @@ html {
     gap: 16px;
   }
 }
+.footer__contactList__contact {
+  background-color: none;
+}
 @media (min-width: 1280px) {
   .footer__logo {
     order: 0;
@@ -482,16 +532,53 @@ html {
   margin-bottom: 0px;
 }
 .band__imgCont {
-  height: 50vw;
   background-image: url("../assets/images/band.jpg");
   background-size: cover;
   background-position-y: -35px;
   background-position-x: 0px;
+  view-timeline-name: --revealing-element;
+  view-timeline-axis: block;
 }
 @media (min-width: 1280px) {
   .band__imgCont {
-    margin-left: 80px;
-    margin-right: 80px;
+    height: 40vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .band__imgCont {
+    height: 45vw;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .band__imgCont {
+    height: 50vw;
+  }
+}
+@media (min-width: 1280px) {
+  .band__imgCont {
+    animation: linear reveal-up both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .band__imgCont {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .band__imgCont {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 1280px) {
+  .band__imgCont {
+    margin-left: 17%;
+    margin-right: 17%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -506,14 +593,17 @@ html {
     margin-right: 16px;
   }
 }
+.band__imgCont__image {
+  width: 100%;
+}
 .band__title {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 @media (min-width: 1280px) {
   .band__title {
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -530,11 +620,34 @@ html {
 }
 .band__quote {
   padding: 0px;
+  view-timeline-name: --revealing-element;
+  view-timeline-axis: block;
 }
 @media (min-width: 1280px) {
   .band__quote {
-    margin-left: 80px;
-    margin-right: 80px;
+    animation: linear reveal-up both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .band__quote {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .band__quote {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 1280px) {
+  .band__quote {
+    margin-left: 17%;
+    margin-right: 17%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -552,11 +665,34 @@ html {
 .band__quote__person {
   padding: 0px;
   font-family: "Avenir-Demi";
+  view-timeline-name: --revealing-element;
+  view-timeline-axis: block;
 }
 @media (min-width: 1280px) {
   .band__quote__person {
-    margin-left: 80px;
-    margin-right: 80px;
+    animation: linear reveal-up both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .band__quote__person {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .band__quote__person {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 1280px) {
+  .band__quote__person {
+    margin-left: 17%;
+    margin-right: 17%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -575,11 +711,34 @@ html {
 .bio {
   padding: 0px;
   margin: 0px;
+  view-timeline-name: --revealing-element;
+  view-timeline-axis: block;
 }
 @media (min-width: 1280px) {
   .bio {
-    margin-left: 80px;
-    margin-right: 80px;
+    animation: linear reveal-up both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .bio {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .bio {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 1280px) {
+  .bio {
+    margin-left: 17%;
+    margin-right: 17%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -628,8 +787,8 @@ html {
 }
 @media (min-width: 1280px) {
   .gallery__title {
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -653,12 +812,28 @@ html {
 }
 @media (min-width: 1280px) {
   .gallery__cards {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .gallery__cards {
+    margin-left: 48px;
+    margin-right: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .gallery__cards {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .gallery__cards {
     grid-template-columns: auto auto auto;
     -moz-column-gap: 24px;
          column-gap: 24px;
     row-gap: 24px;
-    padding-left: 80px;
-    padding-right: 80px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -667,8 +842,6 @@ html {
     -moz-column-gap: 24px;
          column-gap: 24px;
     row-gap: 24px;
-    padding-left: 48px;
-    padding-right: 48px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
@@ -677,9 +850,37 @@ html {
     -moz-column-gap: 16px;
          column-gap: 16px;
     row-gap: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
   }
+}
+.gallery__cards__card {
+  view-timeline-name: --revealing-element;
+  view-timeline-axis: block;
+}
+@media (min-width: 1280px) {
+  .gallery__cards__card {
+    animation: linear reveal-up both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .gallery__cards__card {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .gallery__cards__card {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 30%;
+  }
+}
+.gallery__cards__card:hover {
+  animation: cardHover;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
 }
 .gallery__cards__card__image {
   width: 100%;

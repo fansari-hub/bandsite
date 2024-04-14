@@ -12,82 +12,47 @@
     margin-bottom: 0px;
     
     &__imgCont{
-        height: 50vw;
         background-image: url("../assets/images/band.jpg");
         background-size: cover;
         background-position-y: -35px;       
         background-position-x: 0px; 
 
         @include displayDesktop{
-            margin-left: $pad-L9;
-            margin-right: $pad-L9;
-         }
-     
-         @include displayTablet{
-            margin-left: $pad-L9;
-            margin-right: $pad-L9;
-         }
-     
-         @include displayMobile{
-            margin-left: $pad-L3;
-            margin-right: $pad-L3;
-         }
+            height: 40vw;
+        }
+        @include displayTablet{
+            height: 45vw;
+        }
+        @include displayMobile{
+            height: 50vw;
+        }
+        
+        
+
+        @include revealing-animation;
+        @include marginsL10L9L3;
+        &__image{
+            width: 100%;
+            // height: 50vw;
+            // object-fit:contain;
+        }
     }
     &__title{
         margin-top: 0px;
         margin-bottom: 0px;
-
-        @include displayDesktop{
-            margin-left: $pad-L9;
-            margin-right: $pad-L9;
-         }
-     
-         @include displayTablet{
-            margin-left: $pad-L6;
-            margin-right: $pad-L6;
-         }
-     
-         @include displayMobile{
-            margin-left: $pad-L3;
-            margin-right: $pad-L3;
-         }
+        @include marginsL9L6L3;
     }
 
     &__quote{
         padding: 0px;
-
-        @include displayDesktop{
-            margin-left: $pad-L9;
-            margin-right: $pad-L9;
-         }
-     
-         @include displayTablet{
-            margin-left: $pad-L9;
-            margin-right: $pad-L9;
-         }
-     
-         @include displayMobile{
-            margin-left: $pad-L3;
-            margin-right: $pad-L3;
-         }
+        @include revealing-animation;
+        @include marginsL10L9L3;
 
         &__person{
             padding: 0px;
             font-family: "Avenir-Demi";
-            @include displayDesktop{
-                margin-left: $pad-L9;
-                margin-right: $pad-L9;
-             }
-         
-             @include displayTablet{
-                margin-left: $pad-L9;
-                margin-right: $pad-L9;
-             }
-         
-             @include displayMobile{
-                margin-left: $pad-L3;
-                margin-right: $pad-L3;
-             }
+            @include revealing-animation;
+            @include marginsL10L9L3;
         }
     }
 }
@@ -95,21 +60,8 @@
 .bio{
     padding: 0px;
     margin: 0px;
-
-    @include displayDesktop{
-        margin-left: $pad-L9;
-        margin-right: $pad-L9;
-     }
- 
-     @include displayTablet{
-        margin-left: $pad-L9;
-        margin-right: $pad-L9;
-     }
- 
-     @include displayMobile{
-        margin-left: $pad-L3;
-        margin-right: $pad-L3;
-     }
+    @include revealing-animation;
+    @include marginsL10L9L3;
 
     &__title{
       margin: 0px;    
@@ -136,8 +88,6 @@
             flex-grow:1;
         }
     }
-
-
 }
 
 
@@ -146,20 +96,7 @@
     margin: 0px;
 
     &__title{
-        @include displayDesktop{
-            margin-left: $pad-L9;
-            margin-right: $pad-L9;
-         }
-     
-         @include displayTablet{
-            margin-left: $pad-L6;
-            margin-right: $pad-L6;
-         }
-     
-         @include displayMobile{
-            margin-left: $pad-L3;
-            margin-right: $pad-L3;
-         }
+        @include marginsL9L6L3;
     }
 
     &__cards{
@@ -168,33 +105,35 @@
         margin: auto;
         margin-top: 0px;
         margin-bottom: 0px;
+        @include marginsL9L6L3;
 
     
         @include displayDesktop{
            grid-template-columns: auto auto auto;
            column-gap: $grid-desktop-gutter;
            row-gap: $grid-desktop-gutter;
-           padding-left: $pad-L9;
-            padding-right: $pad-L9;
         }
     
         @include displayTablet{
             grid-template-columns: auto auto auto;
             column-gap: $grid-tablet-gutter;
             row-gap: $grid-tablet-gutter;
-            padding-left: $pad-L6;
-            padding-right: $pad-L6;
         }
     
         @include displayMobile{
             grid-template-columns: auto;
             column-gap: $grid-mobile-gutter;
             row-gap: $grid-mobile-gutter;
-            padding-left: $pad-L3;
-            padding-right: $pad-L3;
         }
     
         &__card{
+            @include revealing-animation;
+            &:hover{
+                animation: cardHover;
+                animation-duration: 0.25s;
+                animation-fill-mode: forwards;
+            }
+
             &__image{
                 width: 100%;
                 
