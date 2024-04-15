@@ -558,7 +558,7 @@ html {
   .band__imgCont {
     animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 40%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -627,7 +627,7 @@ html {
   .band__quote {
     animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 40%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -672,7 +672,7 @@ html {
   .band__quote__person {
     animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 40%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -718,7 +718,7 @@ html {
   .bio {
     animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 40%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -860,7 +860,7 @@ html {
   .gallery__cards__card {
     animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 40%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {

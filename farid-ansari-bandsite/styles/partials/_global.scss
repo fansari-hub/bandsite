@@ -24,21 +24,18 @@ html{
     display: flex;
     margin: 0px;
     
-
     @include displayDesktop{
         flex-direction: row;
         flex-wrap: wrap;
         padding-left: $pad-L9;
         padding-right: $pad-L9;
     }
-
     @include displayTablet{
         flex-direction: row;
         flex-wrap: wrap;
         padding-left: $pad-L6;
         padding-right: $pad-L6;
     }
-
     @include displayMobile{
         flex-direction: column;
         padding-left: 0px;
@@ -47,33 +44,28 @@ html{
     
     &__logo{
         text-align: center;
-
         &__image{
             margin-top: 24px;
             margin-bottom: 24px;
             width: 180px;
         }
     }
-    &__nav{       
+    &__nav{      
+
         @include displayDesktop{
             padding-left: $pad-desktop-between;
             flex-grow: 0.25;
             align-self: flex-end;
-            // color: skyblue;
         }
-    
         @include displayTablet{
             padding-left: $pad-tablet-between;
             flex-grow: 0.25;
             align-self: flex-end;
-            // color:yellow;
         }
-    
         @include displayMobile{
             flex-grow: 0;
-            // color: magenta;
-
         }
+
         &__navbar{
             display: flex;
             justify-content: space-around;
@@ -104,7 +96,6 @@ html{
         display: flex;
         align-items: center;
         @include paddingsL9L6L3;
-
         &__bandTitle{
             font-family: 'Avenir-Demi';
             padding: 0px;
@@ -124,21 +115,18 @@ html{
     justify-content: space-between;
     @include paddingsL9L4L3;
     
-
     @include displayDesktop{
         row-gap: $pad-desktop-between;
         gap: $pad-desktop-between;
         flex-direction: row;
         flex-wrap: wrap;
      }
- 
      @include displayTablet{
         row-gap: $pad-tablet-between;
         gap: $pad-tablet-between;
         flex-direction: row;
         flex-wrap: wrap;
      }
- 
      @include displayMobile{
         row-gap: $pad-mobile-between;
         gap: $pad-mobile-between;
@@ -149,21 +137,18 @@ html{
     &__social{
         display: flex;
 
-        
         @include displayDesktop{
             flex-direction: row;
             flex-wrap: wrap;
             column-gap: $pad-desktop-between;
             row-gap: $pad-desktop-between;
         }
-    
         @include displayTablet{
             flex-direction: row;
             flex-wrap: wrap;
             column-gap: $pad-tablet-between;
             row-gap: $pad-tablet-between;
         }
-    
         @include displayMobile{
             flex-direction: column;
             flex-wrap: nowrap;
@@ -215,18 +200,16 @@ html{
         @include displayDesktop{
                 order:0;
             }
-        
             @include displayTablet{
                 order:0;
             }
-        
             @include displayMobile{
                 order:1;
                 padding-top: $pad-mobile-header_before;
             }
         &__image{
-   
             padding-top: 0px;
+
             @include displayDesktop{
                 width: 120px;
             }
@@ -238,9 +221,9 @@ html{
             @include displayMobile{
                 width: 120px;
             }
+            
         }
     }
-    
     &__copyright{
         flex-basis: 100%;
         padding: 0px;
