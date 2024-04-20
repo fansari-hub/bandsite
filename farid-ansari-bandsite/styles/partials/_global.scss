@@ -46,9 +46,24 @@ html{
     &__logo{
         text-align: center;
         &__image{
-            margin-top: 24px;
-            margin-bottom: 24px;
-            width: 180px;
+            @include displayDesktop{
+                margin-top: $pad-L4;
+                margin-bottom: $pad-L4;
+                max-width: 120px;
+                max-height: 20px;
+            }
+            @include displayTablet{
+                margin-top: $pad-L3b;
+                margin-bottom: $pad-L3b;
+                max-width: 180px; // Style guide says 120px max but mockup is clearly larger!
+            }
+            @include displayMobile{
+                margin-top: $pad-L3;
+                margin-bottom: $pad-L2;
+                max-width: 120px;
+                max-height: 20px;
+            }
+            
         }
     }
     &__nav{      
@@ -69,17 +84,54 @@ html{
 
         &__navbar{
             display: flex;
-            justify-content: space-around;
             list-style: none;
             padding: 0px;
-            margin: 0px;
+            
+            @include displayDesktop{
+                justify-content: flex-start;
+                gap: $pad-L3b;
+                margin: 0px 0px 0px $pad-L3b;
+            }
+            @include displayTablet{
+                justify-content: flex-start;
+                gap: $pad-L5;
+                margin: 0px 0px 0px $pad-L4;
+            }
+            @include displayMobile{
+                justify-content: space-between;
+                gap: 0px;
+                margin: 0px 0px 0px 0px;
+            }
+
             &__item{  
                 text-align: center;
                 margin: 0px;
-                padding: 0px 0px 20px 0px;
-                flex-grow: 1;
+                font-family: 'Avenir';
+                color: $colSecondary-Mercury;
+
+                @include displayDesktop{ 
+                    font-size: 0.9rem;
+                    padding: 0px 0px $pad-L4 0px;
+                    flex-grow: 0;
+                }
+                @include displayTablet{
+                    font-size: 0.9rem;
+                    padding: 0px 0px $pad-L3b 0px;
+                    flex-grow: 0;
+                }
+                @include displayMobile{
+                    font-size: 0.75rem;
+                    padding: 0px 0px $pad-L2 0px;
+                    flex-grow: 1;
+                }
                 &--active{
                     border-bottom: 5px solid;
+                    color: $colPrimary-White;
+                    font-family: 'Avenir-Demi';
+                }
+                &:hover{
+                    border-bottom: 5px solid;
+                    color: $colPrimary-White;
                 }
             }
         }
@@ -212,15 +264,15 @@ html{
             padding-top: 0px;
 
             @include displayDesktop{
-                width: 120px;
+                max-width: 120px;
             }
         
             @include displayTablet{
-                width: 120px;
+                max-width: 120px;
             }
         
             @include displayMobile{
-                width: 120px;
+                max-width: 120px;
             }
             
         }

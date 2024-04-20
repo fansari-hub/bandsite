@@ -290,10 +290,28 @@ html {
 .head__logo {
   text-align: center;
 }
-.head__logo__image {
-  margin-top: 24px;
-  margin-bottom: 24px;
-  width: 180px;
+@media (min-width: 1280px) {
+  .head__logo__image {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    max-width: 120px;
+    max-height: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .head__logo__image {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 180px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .head__logo__image {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    max-width: 120px;
+    max-height: 20px;
+  }
 }
 @media (min-width: 1280px) {
   .head__nav {
@@ -316,19 +334,65 @@ html {
 }
 .head__nav__navbar {
   display: flex;
-  justify-content: space-around;
   list-style: none;
   padding: 0px;
-  margin: 0px;
+}
+@media (min-width: 1280px) {
+  .head__nav__navbar {
+    justify-content: flex-start;
+    gap: 24px;
+    margin: 0px 0px 0px 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .head__nav__navbar {
+    justify-content: flex-start;
+    gap: 40px;
+    margin: 0px 0px 0px 32px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .head__nav__navbar {
+    justify-content: space-between;
+    gap: 0px;
+    margin: 0px 0px 0px 0px;
+  }
 }
 .head__nav__navbar__item {
   text-align: center;
   margin: 0px;
-  padding: 0px 0px 20px 0px;
-  flex-grow: 1;
+  font-family: "Avenir";
+  color: #E1E1E1;
+}
+@media (min-width: 1280px) {
+  .head__nav__navbar__item {
+    font-size: 0.9rem;
+    padding: 0px 0px 32px 0px;
+    flex-grow: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .head__nav__navbar__item {
+    font-size: 0.9rem;
+    padding: 0px 0px 24px 0px;
+    flex-grow: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .head__nav__navbar__item {
+    font-size: 0.75rem;
+    padding: 0px 0px 8px 0px;
+    flex-grow: 1;
+  }
 }
 .head__nav__navbar__item--active {
   border-bottom: 5px solid;
+  color: #FFFFFF;
+  font-family: "Avenir-Demi";
+}
+.head__nav__navbar__item:hover {
+  border-bottom: 5px solid;
+  color: #FFFFFF;
 }
 
 .hero {
@@ -507,17 +571,17 @@ html {
 }
 @media (min-width: 1280px) {
   .footer__logo__image {
-    width: 120px;
+    max-width: 120px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .footer__logo__image {
-    width: 120px;
+    max-width: 120px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .footer__logo__image {
-    width: 120px;
+    max-width: 120px;
   }
 }
 .footer__copyright {
