@@ -98,7 +98,7 @@ html{
                 margin: 0px 0px 0px $pad-L4;
             }
             @include displayMobile{
-                justify-content: space-between;
+                justify-content: space-around;
                 gap: 0px;
                 margin: 0px 0px 0px 0px;
             }
@@ -219,6 +219,11 @@ html{
             gap: 30px;
             &__icon{
                 height: 25px;
+                &:hover{
+                    animation: iconHover;
+                    animation-duration: 0.5s;
+                    animation-fill-mode: forwards;
+                }
             }
         }
     }

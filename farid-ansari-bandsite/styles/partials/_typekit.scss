@@ -20,6 +20,21 @@
     font-family: 'Avenir';
 }
 
+.type__linknostyle{
+    text-decoration: none;
+    color: $colPrimary-White;
+    &:visited{
+        text-decoration: none;
+        color: $colPrimary-White;
+    }
+    &:hover{
+        animation: navHover;
+        animation-duration: 0.15s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+    }
+}
+
 .type__pageHeader{
 
     @include displayDesktop{

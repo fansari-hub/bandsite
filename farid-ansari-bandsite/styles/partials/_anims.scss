@@ -3,11 +3,34 @@
 
 // Animations in Use for this project
 
-@keyframes cardHover{
+@keyframes iconHover{
+
     100%{
-        box-shadow: -5px -5px 4px rgba(0,0,0,0.4);
-        transform:  translate(5px, 5px)
+        transform:  translate(0px, 0px)
+                    scale(1.5,1.5);
+        filter:invert(1);
+    }
+}
+
+
+@keyframes navHover{
+    0%{
+        color: gray;
+    }
+    100%{
+        color: plum;
+    }
+}
+
+@keyframes cardHover{
+    0%{
+        filter: brightness(1.5);
+    }
+    100%{
+        box-shadow: 0px -4px 4px rgba(0,0,0,0.4);
+        transform:  translate(0px, 0px)
                     scale(1.05,1.05);
+        filter:brightness(1);
     }
 }
 
@@ -63,34 +86,6 @@
     }
 
     //end revealing-animation mixin
-}
-
-
-
-//Animations not in used for this project yet (remove later)
-
-@keyframes shiftBackground{
-    0%{
-        background-position-y:-690px;        
-    }
-    100%{
-        background-position-y:0px;
-    }
-}
-
-@keyframes buttonHover{
-    100%{
-        transform:scale(1.2);
-        background-color: $colPrimary-Black;
-        color: $colPrimary-Silver;
-    }
-}
-
-@keyframes navHover{
-    100%{
-        color: $colPrimary-White;
-        text-decoration: underline;
-    }
 }
 
 

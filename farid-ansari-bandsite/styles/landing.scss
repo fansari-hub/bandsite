@@ -113,10 +113,33 @@
 
         &__card{
             @include revealing-animation;
+
+            @include displayDesktop{
+                filter: brightness(0.8);
+            }
+            @include displayTablet{
+                filter: brightness(0.8);
+            }
+            @include displayMobile{
+                filter: brightness(1);
+            }
             &:hover{
-                animation: cardHover;
-                animation-duration: 0.25s;
-                animation-fill-mode: forwards;
+                @include displayDesktop{
+                    animation: cardHover;
+                    animation-duration: 0.25s;
+                    animation-fill-mode: forwards;
+                }
+                @include displayTablet{
+                    animation: cardHover;
+                    animation-duration: 0.25s;
+                    animation-fill-mode: forwards;
+                }
+                @include displayMobile{
+                    animation: cardHover;
+                    animation-duration: 0.25s;
+                    animation-fill-mode: forwards;
+                }
+                
             }
             &__image{
                 width: 100%;       
