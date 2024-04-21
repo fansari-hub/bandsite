@@ -39,6 +39,21 @@ $grid-mobile-gutter: 16px;
 $grid-mobile-margin: 36px;
 
 
+@mixin commentSpacing{
+    @media (min-width: $breakpoint-desktop-s){
+        gap: $grid-desktop-gutter;
+    }
+
+    @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
+        gap: $grid-tablet-gutter;
+    }
+    
+    @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
+        gap: $grid-mobile-gutter;
+    }
+}
+
+
 @mixin avatarSizes{
     @media (min-width: $breakpoint-desktop-s){
         width:  48px;

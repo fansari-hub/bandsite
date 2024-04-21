@@ -149,7 +149,7 @@
 }
 
 .comments{
-    @include marginsL10L9L3;
+    @include marginsL9L6L3;
     background-color: $colPrimary-White;
     margin: 0px;
 
@@ -159,40 +159,22 @@
     &__form{
         display:flex;
         flex-direction: column;
+        @include commentSpacing;
         @include displayDesktop{
-            gap: $grid-desktop-gutter;
-         }
-         @include displayTablet{
-             gap: $grid-tablet-gutter;
-         }
-         @include displayMobile{
-             gap: $grid-mobile-gutter;
-         }
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         &__name{
             display: flex;
             flex-direction: column;
-            @include displayDesktop{
-                gap: $grid-desktop-gutter;
-             }
-             @include displayTablet{
-                 gap: $grid-tablet-gutter;
-             }
-             @include displayMobile{
-                 gap: $grid-mobile-gutter;
-             }
+            @include commentSpacing;
             &__cont{
                 display: flex;
                 align-items: center;
-                @include displayDesktop{
-                    gap: $grid-desktop-gutter;
-                 }
-                 @include displayTablet{
-                     gap: $grid-tablet-gutter;
-                 }
-                 @include displayMobile{
-                     gap: $grid-mobile-gutter;
-                 }
+                @include commentSpacing;
                 &__left{
+                    flex-shrink: 0;
                     overflow: hidden;
                     border-radius: 50%;
                     @include avatarSizes;
@@ -222,27 +204,12 @@
         &__comment{
             display: flex;
             flex-direction: column;
-            @include displayDesktop{
-                gap: $grid-desktop-gutter;
-             }
-             @include displayTablet{
-                 gap: $grid-tablet-gutter;
-             }
-             @include displayMobile{
-                 gap: $grid-mobile-gutter;
-             }
+            @include commentSpacing;
             &__cont{
                 display: flex;
-                @include displayDesktop{
-                    gap: $grid-desktop-gutter;
-                 }
-                 @include displayTablet{
-                     gap: $grid-tablet-gutter;
-                 }
-                 @include displayMobile{
-                     gap: $grid-mobile-gutter;
-                 }
+                @include commentSpacing;
                 &__left{
+                    flex-shrink: 0;
                     @include avatarSizes;
                 }
                 &__right{
@@ -264,22 +231,79 @@
         &__button{
             &__cont{
                 display: flex;
-                @include displayDesktop{
-                    gap: $grid-desktop-gutter;
-                 }
-                 @include displayTablet{
-                     gap: $grid-tablet-gutter;
-                 }
-                 @include displayMobile{
-                     gap: $grid-mobile-gutter;
-                 }
+                @include commentSpacing;
                 &__left{
+                    flex-shrink: 0;
                     @include avatarSizes;
                 }
                 &__right{
                     flex-grow: 1;
+                    text-align: right;
                 }
             }
         }
+    }
+    &__output{
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid $colSecondary-Mercury;
+        background-color: none;
+        padding-top: $pad-L2;
+        padding-bottom: $pad-L2;
+        @include commentSpacing;
+        @include displayDesktop{
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        &__row{
+            display: flex;
+            border-top: 1px solid $colSecondary-Mercury;
+            padding-top: $pad-L3;
+            @include commentSpacing;
+            &__left{
+                flex-shrink: 0;
+                overflow: hidden;
+                background-color: $colSecondary-Mercury;
+                border-radius: 50%;
+                @include avatarSizes;
+                &__img{
+                    margin: 0 auto;
+                    margin-left: -15%;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            &__right{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                background-color: none;
+                @include commentSpacing;
+                &__content{
+                    display: flex;
+                    flex-direction: column;
+                    @include commentSpacing;
+                    &__header{
+                        display: flex;
+                        justify-content: space-between;
+                        background-color: none;
+                        @include commentSpacing;
+                        &__name{
+                            background-color: none;
+                        }
+                        &__date{
+                            background-color: none;
+                        }
+                    }
+                    &__text{
+                        background-color: none;;
+                    }
+                }
+
+            }
+        }
+
     }
 }

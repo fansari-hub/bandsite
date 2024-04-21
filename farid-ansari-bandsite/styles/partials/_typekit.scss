@@ -240,9 +240,53 @@
     border-radius: 4px;
     border-style: solid;
     height: 40px;
-    width: 100%;
+    font-family: 'Avenir-Demi';
+    @include displayDesktop{
+        font-size: 1rem;
+        min-width: 150px;
+        padding-left: $pad-L4;
+        padding-right: $pad-L4;
+    }
+    @include displayTablet{
+        font-size: 1rem;
+        min-width: 150px;
+        padding-left: $pad-L4;
+        padding-right: $pad-L4;
+    }
+    @include displayMobile{
+        font-size: 0.9rem;
+        width: 100%;
+    }
     &:hover{
         background-color: $colSecondary-DarkBlack;
         border-color: $colSecondary-DarkBlack;
+    }
+}
+
+.type__commentsOutput{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Avenir';
+    @include displayDesktop{
+        font-size: 0.875rem;
+        line-height: 1.57;    
+    }
+    @include displayTablet{
+        font-size: 0.875rem;
+        line-height: 1.57;
+    }
+    @include displayMobile{
+        font-size: 0.8125rem;
+        line-height: 1.38;
+    }
+    &--name{
+        font-family: 'Avenir-Demi';
+        color: $colPrimary-Black;
+    }
+    &--date{
+        color: $colPrimary-Silver;
+    }
+    &--comment{
+        color: $colPrimary-Black;
     }
 }
