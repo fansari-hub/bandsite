@@ -147,3 +147,139 @@
         }
     }
 }
+
+.comments{
+    @include marginsL10L9L3;
+    background-color: $colPrimary-White;
+    margin: 0px;
+
+    &__title{
+        background-color: none;
+    }
+    &__form{
+        display:flex;
+        flex-direction: column;
+        @include displayDesktop{
+            gap: $grid-desktop-gutter;
+         }
+         @include displayTablet{
+             gap: $grid-tablet-gutter;
+         }
+         @include displayMobile{
+             gap: $grid-mobile-gutter;
+         }
+        &__name{
+            display: flex;
+            flex-direction: column;
+            @include displayDesktop{
+                gap: $grid-desktop-gutter;
+             }
+             @include displayTablet{
+                 gap: $grid-tablet-gutter;
+             }
+             @include displayMobile{
+                 gap: $grid-mobile-gutter;
+             }
+            &__cont{
+                display: flex;
+                align-items: center;
+                @include displayDesktop{
+                    gap: $grid-desktop-gutter;
+                 }
+                 @include displayTablet{
+                     gap: $grid-tablet-gutter;
+                 }
+                 @include displayMobile{
+                     gap: $grid-mobile-gutter;
+                 }
+                &__left{
+                    overflow: hidden;
+                    border-radius: 50%;
+                    @include avatarSizes;
+                    &__img{
+                        margin: 0 auto;
+                        margin-left: -15%;
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+                &__right{
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    @include displayDesktop{
+                        gap: $grid-desktop-gutter;
+                     }
+                     @include displayTablet{
+                         gap: $grid-tablet-gutter;
+                     }
+                     @include displayMobile{
+                         gap: $pad-L1;
+                     }
+                }
+            }
+        }
+        &__comment{
+            display: flex;
+            flex-direction: column;
+            @include displayDesktop{
+                gap: $grid-desktop-gutter;
+             }
+             @include displayTablet{
+                 gap: $grid-tablet-gutter;
+             }
+             @include displayMobile{
+                 gap: $grid-mobile-gutter;
+             }
+            &__cont{
+                display: flex;
+                @include displayDesktop{
+                    gap: $grid-desktop-gutter;
+                 }
+                 @include displayTablet{
+                     gap: $grid-tablet-gutter;
+                 }
+                 @include displayMobile{
+                     gap: $grid-mobile-gutter;
+                 }
+                &__left{
+                    @include avatarSizes;
+                }
+                &__right{
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    @include displayDesktop{
+                        gap: $grid-desktop-gutter;
+                     }
+                     @include displayTablet{
+                         gap: $grid-tablet-gutter;
+                     }
+                     @include displayMobile{
+                         gap: $pad-L1;
+                     }
+                }
+            }
+        }
+        &__button{
+            &__cont{
+                display: flex;
+                @include displayDesktop{
+                    gap: $grid-desktop-gutter;
+                 }
+                 @include displayTablet{
+                     gap: $grid-tablet-gutter;
+                 }
+                 @include displayMobile{
+                     gap: $grid-mobile-gutter;
+                 }
+                &__left{
+                    @include avatarSizes;
+                }
+                &__right{
+                    flex-grow: 1;
+                }
+            }
+        }
+    }
+}

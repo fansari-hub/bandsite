@@ -193,26 +193,73 @@
   }
 }
 
+.type__label {
+  color: #AFAFAF;
+}
 @media (min-width: 1280px) {
   .type__label {
     font-size: 0.75rem;
     line-height: 0.6;
-    font-family: "Avenir";
+    font-family: "Avenir-Demi";
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .type__label {
     font-size: 0.75rem;
     line-height: 0.6;
-    font-family: "Avenir";
+    font-family: "Avenir-Demi";
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .type__label {
     font-size: 0.625rem;
     line-height: 2;
-    font-family: "Avenir";
+    font-family: "Avenir-Demi";
   }
+}
+
+.type__inputText {
+  font-family: "Avenir";
+  background-color: #FAFAFA;
+  border-color: #E1E1E1;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+@media (min-width: 1280px) {
+  .type__inputText {
+    min-height: 48px;
+    padding: 16px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .type__inputText {
+    min-height: 48px;
+    padding: 16px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .type__inputText {
+    min-height: 36px;
+    padding: 8px;
+  }
+}
+.type__inputText:focus {
+  border-color: #323232;
+}
+
+.type__inputButton {
+  background-color: #323232;
+  color: #FFFFFF;
+  border-color: #323232;
+  border-radius: 4px;
+  border-style: solid;
+  height: 40px;
+  width: 100%;
+}
+.type__inputButton:hover {
+  background-color: #000000;
+  border-color: #000000;
 }
 
 @keyframes iconHover {
@@ -997,4 +1044,249 @@ html {
 }
 .gallery__cards__card__image {
   width: 100%;
+}
+
+.comments {
+  background-color: #FFFFFF;
+  margin: 0px;
+}
+@media (min-width: 1280px) {
+  .comments {
+    margin-left: 17%;
+    margin-right: 17%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+.comments__title {
+  background-color: none;
+}
+.comments__form {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .comments__form {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form {
+    gap: 16px;
+  }
+}
+.comments__form__name {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .comments__form__name {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__name {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__name {
+    gap: 16px;
+  }
+}
+.comments__form__name__cont {
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 1280px) {
+  .comments__form__name__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__name__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__name__cont {
+    gap: 16px;
+  }
+}
+.comments__form__name__cont__left {
+  overflow: hidden;
+  border-radius: 50%;
+}
+@media (min-width: 1280px) {
+  .comments__form__name__cont__left {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__name__cont__left {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__name__cont__left {
+    width: 36px;
+    height: 36px;
+  }
+}
+.comments__form__name__cont__left__img {
+  margin: 0 auto;
+  margin-left: -15%;
+  height: 100%;
+  width: auto;
+}
+.comments__form__name__cont__right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .comments__form__name__cont__right {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__name__cont__right {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__name__cont__right {
+    gap: 4px;
+  }
+}
+.comments__form__comment {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .comments__form__comment {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__comment {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__comment {
+    gap: 16px;
+  }
+}
+.comments__form__comment__cont {
+  display: flex;
+}
+@media (min-width: 1280px) {
+  .comments__form__comment__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__comment__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__comment__cont {
+    gap: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__form__comment__cont__left {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__comment__cont__left {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__comment__cont__left {
+    width: 36px;
+    height: 36px;
+  }
+}
+.comments__form__comment__cont__right {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .comments__form__comment__cont__right {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__comment__cont__right {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__comment__cont__right {
+    gap: 4px;
+  }
+}
+.comments__form__button__cont {
+  display: flex;
+}
+@media (min-width: 1280px) {
+  .comments__form__button__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__button__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__button__cont {
+    gap: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__form__button__cont__left {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .comments__form__button__cont__left {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .comments__form__button__cont__left {
+    width: 36px;
+    height: 36px;
+  }
+}
+.comments__form__button__cont__right {
+  flex-grow: 1;
 }/*# sourceMappingURL=landing.css.map */

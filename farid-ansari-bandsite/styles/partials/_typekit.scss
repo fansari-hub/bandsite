@@ -191,20 +191,58 @@
 }
 
 .type__label{
+    color: $colPrimary-Silver;
     @include displayDesktop{
         font-size: 0.75rem;
         line-height: 0.6;
-        font-family: 'Avenir';
+        font-family: 'Avenir-Demi';
     }
     @include displayTablet{
         font-size: 0.75rem;
         line-height: 0.6;
-        font-family: 'Avenir';
+        font-family: 'Avenir-Demi';
     }
     @include displayMobile{
         font-size: 0.625rem;
         line-height: 2;
-        font-family: 'Avenir';
+        font-family: 'Avenir-Demi';
     }
-    
+}
+
+.type__inputText{
+    font-family: 'Avenir';
+    background-color: $colSecondary-Albaster;
+    border-color: $colSecondary-Mercury;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    @include displayDesktop{
+        min-height: 48px;
+        padding: $pad-L3;
+    }
+    @include displayTablet{
+        min-height: 48px;
+        padding: $pad-L3;
+    }
+    @include displayMobile{
+        min-height: 36px;
+        padding: $pad-L2;
+    }
+    &:focus{
+        border-color: $colPrimary-Black;
+    }
+}
+
+.type__inputButton{
+    background-color: $colPrimary-Black;
+    color: $colPrimary-White;
+    border-color: $colPrimary-Black;
+    border-radius: 4px;
+    border-style: solid;
+    height: 40px;
+    width: 100%;
+    &:hover{
+        background-color: $colSecondary-DarkBlack;
+        border-color: $colSecondary-DarkBlack;
+    }
 }

@@ -39,6 +39,24 @@ $grid-mobile-gutter: 16px;
 $grid-mobile-margin: 36px;
 
 
+@mixin avatarSizes{
+    @media (min-width: $breakpoint-desktop-s){
+        width:  48px;
+        height: 48px;
+    }
+
+    @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
+        width:  48px;
+        height: 48px;
+    }
+    
+    @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
+        width:  36px;
+        height: 36px;
+    }
+}
+
+
 @mixin marginsL10L9L3{
 
     @media (min-width: $breakpoint-desktop-s){
