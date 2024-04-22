@@ -708,17 +708,22 @@ html {
     padding-right: 16px;
   }
 }
-.hero__albumTitle {
+@media (min-width: 1280px) {
+  .hero {
+    flex-direction: row;
+  }
+}
+.hero__left__albumTitle {
   font-family: "Avenir";
   padding-top: 32px;
   margin: 0px;
 }
-.hero__songTitle {
+.hero__left__songTitle {
   font-family: "Avenir-Demi";
   padding-top: 32px;
   margin: 0px;
 }
-.hero__songEmbed {
+.hero__right__songEmbed {
   flex-shrink: 1;
 }
 

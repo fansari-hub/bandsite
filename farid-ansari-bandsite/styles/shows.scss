@@ -19,18 +19,25 @@
     align-items: flex-start;
     justify-items: flex-end;
     @include paddingsL9L6L3;
-    &__albumTitle{
-        font-family: 'Avenir';
-        padding-top: $pad-L4;
-        margin: 0px;
+    @include displayDesktop{
+        flex-direction: row;
     }
-    &__songTitle{
-        font-family: 'Avenir-Demi';
-        padding-top: $pad-L4;
-        margin: 0px;
+    &__left{
+        &__albumTitle{
+            font-family: 'Avenir';
+            padding-top: $pad-L4;
+            margin: 0px;
+        }
+        &__songTitle{
+            font-family: 'Avenir-Demi';
+            padding-top: $pad-L4;
+            margin: 0px;
+        }
     }
-    &__songEmbed{
-        flex-shrink:1;
+    &__right{
+        &__songEmbed{
+            flex-shrink:1;
+        }
     }
 }
 
