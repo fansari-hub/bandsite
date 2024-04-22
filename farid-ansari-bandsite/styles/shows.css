@@ -510,41 +510,6 @@ html {
   color: #FFFFFF;
 }
 
-.hero {
-  height: 55vw;
-  color: #FFFFFF;
-  margin: 0px;
-  background-image: url("../assets/images/hero-bio.jpg"), linear-gradient(rgba(50, 50, 50, 0.5019607843), rgba(50, 50, 50, 0.5019607843));
-  background-blend-mode: overlay;
-  background-size: cover;
-  background-position-y: -20px;
-  display: flex;
-  align-items: center;
-}
-@media (min-width: 1280px) {
-  .hero {
-    padding-left: 120px;
-    padding-right: 120px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1279px) {
-  .hero {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-}
-@media (min-width: 0px) and (max-width: 767px) {
-  .hero {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-.hero__bandTitle {
-  font-family: "Avenir-Demi";
-  padding: 0px;
-  margin: 0px;
-}
-
 .footer {
   margin-top: 16px;
   padding-top: 24px;
@@ -711,6 +676,161 @@ html {
   order: 2;
 }
 
-.class {
+.hero {
+  height: 55vw;
+  color: #FFFFFF;
+  margin: 0px;
+  background-image: url("../assets/images/hero-shows.jpg"), linear-gradient(rgba(50, 50, 50, 0.5019607843), rgba(50, 50, 50, 0.5019607843));
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position-y: -20px;
+  background-position-x: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-end;
+}
+@media (min-width: 1280px) {
+  .hero {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+.hero__albumTitle {
+  font-family: "Avenir";
+  padding-top: 32px;
+  margin: 0px;
+}
+.hero__songTitle {
+  font-family: "Avenir-Demi";
+  padding-top: 32px;
+  margin: 0px;
+}
+.hero__songEmbed {
+  flex-shrink: 1;
+}
+
+.shows {
+  background-color: #FFFFFF;
+  margin: 0px;
+}
+@media (min-width: 1280px) {
+  .shows {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows {
+    margin-left: 48px;
+    margin-right: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+.shows__title {
   background-color: none;
+}
+.shows__output {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .shows__output {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__output {
+    gap: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__output {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.shows__output__row {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .shows__output__row {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__row {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__output__row {
+    gap: 16px;
+  }
+}
+.shows__output__row__col1 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1280px) {
+  .shows__output__row__col1 {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__row__col1 {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__output__row__col1 {
+    gap: 4px;
+  }
+}
+.shows__output__button__cont {
+  display: flex;
+}
+@media (min-width: 1280px) {
+  .shows__output__button__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__button__cont {
+    gap: 24px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__output__button__cont {
+    gap: 16px;
+  }
+}
+.shows__output__button__cont__right {
+  flex-grow: 1;
+  text-align: right;
 }/*# sourceMappingURL=shows.css.map */

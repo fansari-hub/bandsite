@@ -5,6 +5,80 @@
 @use 'partials/var' as *;
 @use 'partials/global' as site;
 
-.class{
-    background-color: none;
+.hero{
+    height: 55vw;
+    color: $colPrimary-White;
+    margin: 0px;
+    background-image: url("../assets/images/hero-shows.jpg"), linear-gradient(#32323280, #32323280);
+    background-blend-mode:overlay;
+    background-size: cover;
+    background-position-y: -20px;
+    background-position-x: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-end;
+    @include paddingsL9L6L3;
+    &__albumTitle{
+        font-family: 'Avenir';
+        padding-top: $pad-L4;
+        margin: 0px;
+    }
+    &__songTitle{
+        font-family: 'Avenir-Demi';
+        padding-top: $pad-L4;
+        margin: 0px;
+    }
+    &__songEmbed{
+        flex-shrink:1;
+    }
+}
+
+.shows{
+    @include marginsL9L6L3;
+    background-color: $colPrimary-White;
+    margin: 0px;
+
+    &__title{
+        background-color: none;
+    }
+    &__output{
+        display:flex;
+        flex-direction: column;
+        @include commentSpacing;
+        @include displayDesktop{
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__row{
+            display: flex;
+            flex-direction: column;
+            @include commentSpacing;
+            &__col1{
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    @include displayDesktop{
+                        gap: $grid-desktop-gutter;
+                     }
+                     @include displayTablet{
+                         gap: $grid-tablet-gutter;
+                     }
+                     @include displayMobile{
+                         gap: $pad-L1;
+                     }
+            }
+        }
+        &__button{
+            &__cont{
+                display: flex;
+                @include commentSpacing;
+                &__right{
+                    flex-grow: 1;
+                    text-align: right;
+                }
+            }
+        }
+    }
 }

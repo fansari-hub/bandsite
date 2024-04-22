@@ -6,6 +6,24 @@
 @use 'partials/global' as site;
 
 
+.hero{
+    height: 55vw;
+    color: $colPrimary-White;
+    margin: 0px;
+    background-image: url("../assets/images/hero-bio.jpg"), linear-gradient(#32323280, #32323280);
+    background-blend-mode:overlay;
+    background-size: cover;
+    background-position-y: -20px;
+    display: flex;
+    align-items: center;
+    @include paddingsL9L6L3;
+    &__bandTitle{
+        font-family: 'Avenir-Demi';
+        padding: 0px;
+        margin: 0px;
+    }
+}
+
 .band{
     padding-top: 0px;
     margin-top: 0px;
