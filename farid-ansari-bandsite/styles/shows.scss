@@ -1,0 +1,10 @@
+@use 'partials/displays' as *;
+@use 'partials/typekit' as * ;
+@use 'partials/colors' as * ;
+@use 'partials/anims' as * ;
+@use 'partials/var' as *;
+@use 'partials/global' as site;
+
+.class{
+    background-color: none;
+}
