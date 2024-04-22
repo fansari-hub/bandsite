@@ -677,18 +677,18 @@ html {
 }
 
 .hero {
-  height: 55vw;
+  min-height: 55vw;
   color: #FFFFFF;
   margin: 0px;
   background-image: url("../assets/images/hero-shows.jpg"), linear-gradient(rgba(50, 50, 50, 0.5019607843), rgba(50, 50, 50, 0.5019607843));
   background-blend-mode: overlay;
   background-size: cover;
-  background-position-y: -20px;
+  background-position-y: -40px;
   background-position-x: 0px;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-items: flex-end;
+  justify-content: center;
+  gap: 8px;
 }
 @media (min-width: 1280px) {
   .hero {
@@ -711,6 +711,19 @@ html {
 @media (min-width: 1280px) {
   .hero {
     flex-direction: row;
+    align-items: center;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 .hero__left__albumTitle {
@@ -720,11 +733,26 @@ html {
 }
 .hero__left__songTitle {
   font-family: "Avenir-Demi";
-  padding-top: 32px;
+  padding-top: 8px;
   margin: 0px;
 }
+@media (min-width: 1280px) {
+  .hero__left__songTitle {
+    max-width: 19rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero__left__songTitle {
+    max-width: 22rem;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .hero__left__songTitle {
+    max-width: 12.5rem;
+  }
+}
 .hero__right__songEmbed {
-  flex-shrink: 1;
+  padding-top: 32px;
 }
 
 .shows {
@@ -780,7 +808,28 @@ html {
 }
 .shows__output__row {
   display: flex;
-  flex-direction: column;
+  border-bottom: 1px solid #E1E1E1;
+  padding-bottom: 8px;
+  background-color: none;
+}
+@media (min-width: 1280px) {
+  .shows__output__row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__output__row {
+    flex-direction: column;
+  }
 }
 @media (min-width: 1280px) {
   .shows__output__row {
@@ -797,45 +846,69 @@ html {
     gap: 16px;
   }
 }
-.shows__output__row__col1 {
-  flex-grow: 1;
+.shows__output__row__col {
+  background-color: none;
+  flex-grow: 0;
   display: flex;
   flex-direction: column;
 }
 @media (min-width: 1280px) {
-  .shows__output__row__col1 {
+  .shows__output__row__col {
     gap: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
-  .shows__output__row__col1 {
+  .shows__output__row__col {
     gap: 24px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
-  .shows__output__row__col1 {
+  .shows__output__row__col {
     gap: 4px;
   }
 }
-.shows__output__button__cont {
+@media (min-width: 1280px) {
+  .shows__output__row__col__label {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__row__col__label {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__output__row__col__label--firstrow {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__row__col__label--firstrow {
+    display: block;
+  }
+}
+.shows__output__row__col__content {
+  background-color: none;
+}
+.shows__output__row__button__cont {
   display: flex;
 }
 @media (min-width: 1280px) {
-  .shows__output__button__cont {
+  .shows__output__row__button__cont {
     gap: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
-  .shows__output__button__cont {
+  .shows__output__row__button__cont {
     gap: 24px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
-  .shows__output__button__cont {
+  .shows__output__row__button__cont {
     gap: 16px;
   }
 }
-.shows__output__button__cont__right {
+.shows__output__row__button__cont__right {
   flex-grow: 1;
   text-align: right;
 }/*# sourceMappingURL=shows.css.map */

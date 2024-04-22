@@ -6,37 +6,60 @@
 @use 'partials/global' as site;
 
 .hero{
-    height: 55vw;
+    min-height: 55vw;
     color: $colPrimary-White;
     margin: 0px;
     background-image: url("../assets/images/hero-shows.jpg"), linear-gradient(#32323280, #32323280);
     background-blend-mode:overlay;
     background-size: cover;
-    background-position-y: -20px;
+    background-position-y: -40px;
     background-position-x: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-items: flex-end;
     @include paddingsL9L6L3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    gap: $pad-L2;
     @include displayDesktop{
         flex-direction: row;
+        align-items: center;
+    }
+    @include displayTablet{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    @include displayMobile{
+        flex-direction: column;
+        align-items: flex-start;
     }
     &__left{
         &__albumTitle{
+            // background-color: yellow;
             font-family: 'Avenir';
             padding-top: $pad-L4;
             margin: 0px;
         }
         &__songTitle{
+            //background-color: blue;
             font-family: 'Avenir-Demi';
-            padding-top: $pad-L4;
+            padding-top: $pad-L2;
             margin: 0px;
+            @include displayDesktop{
+                max-width: 19rem;
+            }
+            @include displayTablet{
+                max-width: 22rem;
+            }
+            @include displayMobile{
+                max-width: 12.5rem;
+            }
         }
     }
     &__right{
+        //background-color: orange;
+        //flex-grow: 1;
         &__songEmbed{
-            flex-shrink:1;
+            //flex-shrink:1;
+            padding-top: $pad-L4;
         }
     }
 }
@@ -60,10 +83,26 @@
         }
         &__row{
             display: flex;
-            flex-direction: column;
+            border-bottom: 1px solid $colSecondary-Mercury;
+            padding-bottom: $pad-L2;
+            background-color: none;
+            @include displayDesktop{                
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            @include displayTablet{                
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            @include displayMobile{                
+                flex-direction: column;
+            }
             @include commentSpacing;
-            &__col1{
-                    flex-grow: 1;
+            &__col{
+                    background-color: none;
+                    flex-grow: 0;
                     display: flex;
                     flex-direction: column;
                     @include displayDesktop{
@@ -75,17 +114,37 @@
                      @include displayMobile{
                          gap: $pad-L1;
                      }
+                     &__label{
+                        @include displayDesktop{
+                            display:none;
+                         }
+                         @include displayTablet{
+                             display: none;
+                         }
+                         &--firstrow{
+                            @include displayDesktop{
+                                display:block;
+                             }
+                             @include displayTablet{
+                                 display:block;
+                             }
+                         }
+                     }
+                     &__content{
+                        background-color: none;
+                     }
             }
-        }
-        &__button{
-            &__cont{
-                display: flex;
-                @include commentSpacing;
-                &__right{
-                    flex-grow: 1;
-                    text-align: right;
+            &__button{
+                &__cont{
+                    display: flex;
+                    @include commentSpacing;
+                    &__right{
+                        flex-grow: 1;
+                        text-align: right;
+                    }
                 }
             }
         }
+
     }
 }
