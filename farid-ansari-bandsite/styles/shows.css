@@ -195,6 +195,7 @@
 
 .type__label {
   color: #AFAFAF;
+  margin: 0px;
 }
 @media (min-width: 1280px) {
   .type__label {

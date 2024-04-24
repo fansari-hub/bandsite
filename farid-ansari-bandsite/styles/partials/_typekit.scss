@@ -192,6 +192,7 @@
 
 .type__label{
     color: $colPrimary-Silver;
+    margin: 0px;
     @include displayDesktop{
         font-size: 0.75rem;
         line-height: 0.6;
