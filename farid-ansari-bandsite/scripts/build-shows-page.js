@@ -40,23 +40,20 @@ let bandsiteShows = {
       showLocation: "San Fransico, CA",
     };
 
-    for (var i = 0; i < (this.shows.length); i++)
-    {
-      if (i==0)
-        this.updatePage(this.getShow(i), i, true);
-      else
-        this.updatePage(this.getShow(i), i);
+    for (var i = 0; i < this.shows.length; i++) {
+      if (i == 0) this.updatePage(this.getShow(i), i, true);
+      else this.updatePage(this.getShow(i), i);
     }
-
-
   },
   getShow: function (showID) {
     return this.shows[showID];
-
   },
 
-
-  updatePage: function ({ showDate, showVenue, showLocation }, index, isfirstRow = false) {
+  updatePage: function (
+    { showDate, showVenue, showLocation },
+    index,
+    isfirstRow = false
+  ) {
     var childElement;
     var parentElement;
 
@@ -65,9 +62,9 @@ let bandsiteShows = {
     childElement.classList.add("shows__output__row");
     childElement.id = "rowID" + index;
     childElement.addEventListener("click", () => {
-      let row = document.getElementById("rowID"+index);
+      let row = document.getElementById("rowID" + index);
       let rowElements = document.querySelectorAll(".shows__output__row");
-      for (x=0; x<rowElements.length;x++){
+      for (x = 0; x < rowElements.length; x++) {
         rowElements[x].classList.remove("shows__output__row--active");
       }
       row.classList.add("shows__output__row--active");
@@ -176,10 +173,8 @@ let bandsiteShows = {
     childElement.id = "buttonID" + index;
     childElement.setAttribute("type", "submit");
     childElement.setAttribute("value", "BUY TICKETS");
-    childElement.setAttribute("row_ref", index);
     parentElement.appendChild(childElement);
   },
-
 };
 
 bandsiteShows.initalizeShows();
