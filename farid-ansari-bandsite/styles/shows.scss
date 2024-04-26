@@ -77,7 +77,8 @@
     &__output{
         display:flex;
         flex-direction: column;
-        @include commentSpacing;
+        background-color: none;
+        //@include commentSpacing;
         @include displayDesktop{
             max-width: 600px;
             margin-left: auto;
@@ -86,22 +87,53 @@
         &__row{
             display: flex;
             border-bottom: 1px solid $colSecondary-Mercury;
-            padding-bottom: $pad-L2;
             background-color: none;
+            
             @include displayDesktop{                
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
+                padding-top: $pad-L3b;
+                padding-bottom: $pad-L3b;
+                padding-left: 18px ;
+                padding-right: 18px ; 
             }
             @include displayTablet{                
                 flex-direction: row;
                 align-items: center;
                 justify-content:space-between;
+                padding-top: $pad-L3b;
+                padding-bottom: $pad-L3b;
+                padding-left: $pad-L2 ;
+                padding-right: $pad-L2 ; 
             }
             @include displayMobile{                
                 flex-direction: column;
+                padding: 16px;
             }
             @include commentSpacing;
+            &:hover{
+                @include displayDesktop{                
+                    background-color: $colSecondary-Albaster;
+                }
+                @include displayTablet{                
+                    background-color: $colSecondary-Albaster;
+                }
+                @include displayMobile{                
+                    background-color: none;
+                }
+            }
+            &--active{
+                @include displayDesktop{                
+                    background-color: $colSecondary-Mercury !important;
+                }
+                @include displayTablet{                
+                    background-color: $colSecondary-Mercury !important;
+                }
+                @include displayMobile{                
+                    background-color: none;
+                }
+            }
             &__col{
                     background-color: none;
                     flex-grow: 0;
@@ -137,15 +169,8 @@
                      }
             }
             &__button{
-                &__cont{
-                    display: flex;
-                    @include commentSpacing;
-                    &__right{
-                        flex-grow: 1;
-                        text-align: right;
-                    }
-                }
-            }
+                background-color: none;
+             }
         }
 
     }

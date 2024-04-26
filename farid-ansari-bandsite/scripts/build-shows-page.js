@@ -43,9 +43,9 @@ let bandsiteShows = {
     for (var i = 0; i < (this.shows.length); i++)
     {
       if (i==0)
-        this.updatePage(this.getShow(i), true);
+        this.updatePage(this.getShow(i), i, true);
       else
-        this.updatePage(this.getShow(i));
+        this.updatePage(this.getShow(i), i);
     }
 
 
@@ -56,13 +56,22 @@ let bandsiteShows = {
   },
 
 
-  updatePage: function ({ showDate, showVenue, showLocation }, isfirstRow = false) {
+  updatePage: function ({ showDate, showVenue, showLocation }, index, isfirstRow = false) {
     var childElement;
     var parentElement;
 
     parentElement = document.getElementById("showsOutputContainer");
     childElement = document.createElement("div");
     childElement.classList.add("shows__output__row");
+    childElement.id = "rowID" + index;
+    childElement.addEventListener("click", () => {
+      let row = document.getElementById("rowID"+index);
+      let rowElements = document.querySelectorAll(".shows__output__row");
+      for (x=0; x<rowElements.length;x++){
+        rowElements[x].classList.remove("shows__output__row--active");
+      }
+      row.classList.add("shows__output__row--active");
+    });
     parentElement.appendChild(childElement);
 
     parentElement = childElement;
@@ -92,6 +101,7 @@ let bandsiteShows = {
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
     childElement.classList.add("type__commentsOutput--name");
+    childElement.id = "dateID" + index;
     childElement.innerText = showDate;
     parentElement.appendChild(childElement);
 
@@ -121,6 +131,7 @@ let bandsiteShows = {
     parentElement = childElement;
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
+    childElement.id = "venueID" + index;
     childElement.innerText = showVenue;
     parentElement.appendChild(childElement);
 
@@ -150,6 +161,7 @@ let bandsiteShows = {
     parentElement = childElement;
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
+    childElement.id = "locationID" + index;
     childElement.innerText = showLocation;
     parentElement.appendChild(childElement);
 
@@ -161,8 +173,10 @@ let bandsiteShows = {
     parentElement = childElement;
     childElement = document.createElement("input");
     childElement.classList.add("type__inputButton");
+    childElement.id = "buttonID" + index;
     childElement.setAttribute("type", "submit");
     childElement.setAttribute("value", "BUY TICKETS");
+    childElement.setAttribute("row_ref", index);
     parentElement.appendChild(childElement);
   },
 

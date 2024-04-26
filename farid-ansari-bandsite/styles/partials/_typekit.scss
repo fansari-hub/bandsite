@@ -242,6 +242,7 @@
     border-style: solid;
     height: 40px;
     font-family: 'Avenir-Demi';
+    
     @include displayDesktop{
         font-size: 1rem;
         min-width: 150px;
