@@ -59,7 +59,9 @@
         //flex-grow: 1;
         &__songEmbed{
             //flex-shrink:1;
-            padding-top: $pad-L4;
+            padding-top: $pad-L2;
+            padding-bottom: $pad-L2;
+            filter : sepia(100%) opacity(0.7) drop-shadow(0px 0px 10px magenta);
         }
     }
 }

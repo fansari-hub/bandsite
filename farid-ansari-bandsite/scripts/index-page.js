@@ -7,7 +7,7 @@ let bandsiteComments = {
     },
   ],
 
-  initalizeComments: function () {
+  loadComments: function () {
     this.comments[0] = {
       username: "Victor Pinto",
       timestamp: Date.parse("02 Nov 2023 00:00:00 GMT"),
@@ -33,6 +33,11 @@ let bandsiteComments = {
     }
   },
 
+  initalizeForm: function (){
+    let elementForm = document.getElementById("formCommentsMain");
+    elementForm.addEventListener("submit", this.formValidation);
+  },
+
   postComment: function (strUsername, strComment) {
     let i = this.comments.push({
       username: strUsername,
@@ -40,6 +45,36 @@ let bandsiteComments = {
       comment: strComment,
     });
     return i - 1;
+  },
+
+  formValidation: function(event){
+    event.preventDefault();
+    let isValid = true;
+    let inputElement = document.getElementsByClassName("js__mandatory");
+
+    for (x=0; x<inputElement.length; x++){
+      if (inputElement[x].value === ""){
+        isValid = false;
+        inputElement[x].style.borderColor = "red";
+      }
+      else{
+        inputElement[x].style.borderColor = "#E1E1E1";
+      }
+    }
+    
+    if (isValid){
+      let inputName = document.getElementById("formCommentsNameInput");
+      let inputComment = document.getElementById("formCommentsCommentInput");
+      let i = bandsiteComments.postComment(inputName.value, inputComment.value)
+      
+      if (i > 0)
+      {
+        inputName.value = "";
+        inputComment.value = "";
+        bandsiteComments.clearPage();
+        bandsiteComments.loadComments();
+      };
+    }
   },
 
   getComment: function (commentID) {
@@ -87,6 +122,7 @@ let bandsiteComments = {
     };
 
     let ms = Date.now() - time;
+    let msTotal = ms;
 
     lookup.values.push(ms / YEAR_MS);
     ms %= YEAR_MS;
@@ -134,7 +170,19 @@ let bandsiteComments = {
       }
       break;
     }
-    return prettyTime + " ago";
+    
+    if (msTotal < 1000){
+      return " just now"
+    }
+    else{
+      return prettyTime + " ago";
+    }
+    
+  },
+
+  clearPage: function (){
+    let parentElement = document.getElementById("commentsOutputContainer");
+    parentElement.innerHTML = ""
   },
 
   updatePage: function ({ username, relativeTime, comment }) {
@@ -217,4 +265,5 @@ let bandsiteComments = {
   },
 };
 
-bandsiteComments.initalizeComments();
+bandsiteComments.loadComments();
+bandsiteComments.initalizeForm();
