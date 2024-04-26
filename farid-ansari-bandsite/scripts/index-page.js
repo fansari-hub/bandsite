@@ -95,6 +95,7 @@ let bandsiteComments = {
       3) Using Floor instead of Round function to round avoid round up
       4) Implemented remainder display (example: instead of rounding to "about one year ago", it can display "about one year and 5 months")
       5) moved related variables into one object to make it cleaner.
+      6) added support for "just now" when something was just posted. 
     */
 
     let terminate = false;
