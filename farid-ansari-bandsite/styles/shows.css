@@ -325,6 +325,14 @@
     filter: invert(1);
   }
 }
+@keyframes unBlur {
+  0% {
+    filter: blur(20px) sepia(100%) opacity(0);
+  }
+  100% {
+    filter: blur(0px) sepia(100%) opacity(0.7);
+  }
+}
 @keyframes navHover {
   0% {
     color: gray;
@@ -756,6 +764,9 @@ html {
   padding-top: 8px;
   padding-bottom: 8px;
   filter: sepia(100%) opacity(0.7) drop-shadow(0px 0px 10px magenta);
+  animation: unBlur;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
 }
 
 .shows {
@@ -799,6 +810,29 @@ html {
   display: flex;
   border-bottom: 1px solid #E1E1E1;
   background-color: none;
+  view-timeline-name: --revealing-element;
+  view-timeline-axis: block;
+}
+@media (min-width: 1280px) {
+  .shows__output__row {
+    animation: linear reveal-up both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 40%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__output__row {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 25%;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__output__row {
+    animation: linear reveal-side both;
+    animation-timeline: --revealing-element;
+    animation-range: entry 50% cover 25%;
+  }
 }
 @media (min-width: 1280px) {
   .shows__output__row {

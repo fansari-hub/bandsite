@@ -62,6 +62,9 @@
             padding-top: $pad-L2;
             padding-bottom: $pad-L2;
             filter : sepia(100%) opacity(0.7) drop-shadow(0px 0px 10px magenta);
+            animation: unBlur;
+            animation-duration: 1s;
+            animation-fill-mode:backwards;
         }
     }
 }
@@ -88,6 +91,7 @@
             display: flex;
             border-bottom: 1px solid $colSecondary-Mercury;
             background-color: none;
+            @include revealing-animation;
             
             @include displayDesktop{                
                 flex-direction: row;

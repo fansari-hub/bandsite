@@ -325,6 +325,14 @@
     filter: invert(1);
   }
 }
+@keyframes unBlur {
+  0% {
+    filter: blur(20px) sepia(100%) opacity(0);
+  }
+  100% {
+    filter: blur(0px) sepia(100%) opacity(0.7);
+  }
+}
 @keyframes navHover {
   0% {
     color: gray;
@@ -751,14 +759,14 @@ html {
   .band__imgCont {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .band__imgCont {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -820,14 +828,14 @@ html {
   .band__quote {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .band__quote {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -865,14 +873,14 @@ html {
   .band__quote__person {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .band__quote__person {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -911,14 +919,14 @@ html {
   .bio {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .bio {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -1053,14 +1061,14 @@ html {
   .gallery__cards__card {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .gallery__cards__card {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
