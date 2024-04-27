@@ -1,4 +1,9 @@
+/* 
+Object responsible for getting data and updating 
+the DOM shows area
+*/
 let bandsiteShows = {
+  //show list objects
   shows: [
     {
       showdate: "_NOTINIT_",
@@ -6,8 +11,11 @@ let bandsiteShows = {
       showLocation: "_NOTINIT",
     },
   ],
-  titles: ["Date", "Venue", "Location"],
 
+  /*
+  This method initialized the data with default values
+  and makes the necessary calls get data and update the page with shows.
+  */
   initalizeShows: function () {
     this.shows[0] = {
       showDate: "Mon Sept 09 2024",
@@ -45,10 +53,13 @@ let bandsiteShows = {
       else this.updatePage(this.getShow(i), i);
     }
   },
+  /* This method return data from a single show from the show data */
   getShow: function (showID) {
     return this.shows[showID];
   },
 
+  /* This method is responsible for updating the show output area
+  with required HTML elements and data for a single show */
   updatePage: function (
     { showDate, showVenue, showLocation },
     index,
@@ -177,4 +188,5 @@ let bandsiteShows = {
   },
 };
 
+// On page load, load show information.
 bandsiteShows.initalizeShows();

@@ -1,4 +1,10 @@
+/* 
+Object responsible for providing "backbone"
+functionality for the comments ouput section which 
+includes getting data and updating the DOM.
+*/
 let bandsiteComments = {
+  // Comment data object
   comments: [
     {
       username: "_NOTINITALIZED_",
@@ -6,7 +12,11 @@ let bandsiteComments = {
       comment: "_NOTINITALIZED_",
     },
   ],
-  /* ----------------- */
+
+  /*
+  This method initialized the data with default values
+  and makes the necessary calls get data and update the page with comments
+  */
   loadComments: function () {
     this.comments[0] = {
       username: "Victor Pinto",
@@ -31,7 +41,8 @@ let bandsiteComments = {
       this.updatePage(this.getComment(i));
     }
   },
-/* ----------------- */
+
+  /* This method takes and saves a new comment from user input */
   postComment: function (strUsername, strComment) {
     let i = this.comments.push({
       username: strUsername,
@@ -40,21 +51,27 @@ let bandsiteComments = {
     });
     return i - 1;
   },
-/* ----------------- */
+
+  /* This method return data from a single comment from the comments data */
   getComment: function (commentID) {
     let singleCommment = {
       username: this.comments[commentID].username,
-      relativeTime: bandsiteUtils.getRelativeTime(this.comments[commentID].timestamp),
+      relativeTime: bandsiteUtils.getRelativeTime(
+        this.comments[commentID].timestamp
+      ),
       comment: this.comments[commentID].comment,
     };
     return singleCommment;
   },
-/* ----------------- */
+
+  /* This method clears the comment DOM area */
   clearPage: function () {
     let parentElement = document.getElementById("commentsOutputContainer");
     parentElement.innerHTML = "";
   },
-/* ----------------- */
+
+  /* This method is responsible for updating the comment output area
+  with required HTML elements and data for a single comment */
   updatePage: function ({ username, relativeTime, comment }) {
     var childElement;
     var parentElement;
@@ -93,7 +110,9 @@ let bandsiteComments = {
 
     parentElement = childElement;
     childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content__header__name");
+    childElement.classList.add(
+      "comments__output__row__right__content__header__name"
+    );
     parentElement.appendChild(childElement);
 
     parentElement = childElement;
@@ -133,6 +152,15 @@ let bandsiteComments = {
   },
 };
 
+/* 
+Object responsible for handling user input from form
+and validation. Once the form is validated, it will also
+call the necessary methods in the bandsiteComments object
+to clear/reload the the comment output section.
+
+To use this object, must initalize by calling
+initalizeFormListener method.
+*/
 let bandsiteForm = {
   initalizeFormListener: function () {
     let elementForm = document.getElementById("formCommentsMain");
@@ -163,12 +191,17 @@ let bandsiteForm = {
         inputComment.value = "";
         bandsiteComments.clearPage();
         bandsiteComments.loadComments();
+      } else{
+        alert("Something when wrong. Unable to post comment! ")
       }
     }
   },
-}
+};
 
+/* Object for provideing utility functions */
 let bandsiteUtils = {
+  /* method converts elapsed time to human reasable format
+  Provide a numeric timestamp and it will a string output*/
   getRelativeTime: function (time) {
     /*
       Got original function from: https://codereview.stackexchange.com/questions/44623/output-human-readable-time. 
@@ -261,7 +294,10 @@ let bandsiteUtils = {
       return prettyTime + " ago";
     }
   },
-}
+};
 
+// On page load, load default comments
 bandsiteComments.loadComments();
+
+// Activate form listener/ management
 bandsiteForm.initalizeFormListener();
