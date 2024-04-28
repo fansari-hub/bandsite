@@ -97,7 +97,7 @@ const bandsiteShows = {
     parentElement = childElement;
     childElement = document.createElement("p");
     childElement.classList.add("type__label");
-    childElement.innerText = "Date";
+    childElement.innerText = "DATE";
     parentElement.appendChild(childElement);
 
     parentElement = childElement.parentElement.parentElement;
@@ -128,7 +128,7 @@ const bandsiteShows = {
     parentElement = childElement;
     childElement = document.createElement("p");
     childElement.classList.add("type__label");
-    childElement.innerText = "Venue";
+    childElement.innerText = "VENUE";
     parentElement.appendChild(childElement);
 
     parentElement = childElement.parentElement.parentElement;
@@ -158,7 +158,7 @@ const bandsiteShows = {
     parentElement = childElement;
     childElement = document.createElement("p");
     childElement.classList.add("type__label");
-    childElement.innerText = "Location";
+    childElement.innerText = "LOCATION";
     parentElement.appendChild(childElement);
 
     parentElement = childElement.parentElement.parentElement;

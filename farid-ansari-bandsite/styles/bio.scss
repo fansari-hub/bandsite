@@ -44,7 +44,7 @@
             height: 50vw;
         }
         
-        @include revealing-animation;
+        @include revealing-animation-slideupOnly;
         @include marginsL10L9L3;
         &__image{
             width: 100%;
@@ -102,6 +102,18 @@
 .gallery{
     background-color: $colSecondary-Albaster;
     margin: 0px;
+    
+    @include displayDesktop{
+        padding-bottom: $pad-L4;
+    }
+    @include displayTablet{
+        padding-bottom: $pad-L4;
+    }
+    @include displayMobile{
+        padding-bottom: $pad-L3;
+    }
+    
+
     &__title{
         @include marginsL9L6L3;
     }
@@ -169,17 +181,38 @@
 .comments{
     @include marginsL9L6L3;
     background-color: $colPrimary-White;
-    margin: 0px;
+    @include displayDesktop{
+        padding-top: $pad-L6;
+    }
+    @include displayTablet{
+        padding-top: $pad-L6;
+    }
+    @include displayMobile{
+        padding-top: $pad-L2;
+    }
 
     &__title{
         background-color: none;
+        padding-top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        @include displayDesktop{
+            padding-bottom: $pad-L4;
+        }
+        @include displayTablet{
+            padding-bottom: $pad-L4;
+        }
+        @include displayMobile{
+            padding-bottom: $pad-L3;
+        }
+        
     }
     &__form{
         display:flex;
         flex-direction: column;
         @include commentSpacing;
         @include displayDesktop{
-            max-width: 600px;
+            max-width: 525px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -208,10 +241,10 @@
                     display: flex;
                     flex-direction: column;
                     @include displayDesktop{
-                        gap: $grid-desktop-gutter;
+                        gap: $pad-L2;
                      }
                      @include displayTablet{
-                         gap: $grid-tablet-gutter;
+                         gap: $pad-L2;
                      }
                      @include displayMobile{
                          gap: $pad-L1;
@@ -235,10 +268,10 @@
                     display: flex;
                     flex-direction: column;
                     @include displayDesktop{
-                        gap: $grid-desktop-gutter;
+                        gap: $pad-L2;
                      }
                      @include displayTablet{
-                         gap: $grid-tablet-gutter;
+                         gap: $pad-L2;
                      }
                      @include displayMobile{
                          gap: $pad-L1;
@@ -270,7 +303,7 @@
         padding-bottom: $pad-L2;
         @include commentSpacing;
         @include displayDesktop{
-            max-width: 600px;
+            max-width: 525px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -280,6 +313,7 @@
             border-top: 1px solid $colSecondary-Mercury;
             padding-top: $pad-L3;
             @include commentSpacing;
+            @include revealing-animation-slideupOnly;
             &__left{
                 flex-shrink: 0;
                 overflow: hidden;

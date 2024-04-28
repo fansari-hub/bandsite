@@ -229,24 +229,39 @@
 }
 @media (min-width: 1280px) {
   .type__inputText {
-    min-height: 48px;
+    min-height: 1rem;
     padding: 16px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .type__inputText {
-    min-height: 48px;
+    min-height: 1rem;
     padding: 16px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .type__inputText {
-    min-height: 36px;
+    min-height: 1rem;
     padding: 8px;
   }
 }
 .type__inputText:focus {
   border-color: #323232;
+}
+@media (min-width: 1280px) {
+  .type__inputText--textArea {
+    min-height: 4rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .type__inputText--textArea {
+    min-height: 4rem;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .type__inputText--textArea {
+    min-height: 5rem;
+  }
 }
 
 .type__inputButton {
@@ -771,7 +786,8 @@ html {
 
 .shows {
   background-color: #FFFFFF;
-  margin: 0px;
+  background-color: none;
+  display: flex;
 }
 @media (min-width: 1280px) {
   .shows {
@@ -791,8 +807,53 @@ html {
     margin-right: 16px;
   }
 }
-.shows__title {
-  background-color: none;
+@media (min-width: 1280px) {
+  .shows {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 36px;
+    padding-bottom: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows {
+    flex-direction: column;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    gap: 0px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows {
+    flex-direction: column;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    gap: 0px;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__title {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .shows__title {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .shows__title {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 .shows__output {
   display: flex;
@@ -822,14 +883,14 @@ html {
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .shows__output__row {
-    animation: linear reveal-side both;
+    animation: linear reveal-up both;
     animation-timeline: --revealing-element;
     animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .shows__output__row {
-    animation: linear reveal-side both;
+    animation: linear reveal-up both;
     animation-timeline: --revealing-element;
     animation-range: entry 50% cover 25%;
   }
@@ -839,8 +900,8 @@ html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     padding-left: 18px;
     padding-right: 18px;
   }
@@ -850,8 +911,8 @@ html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     padding-left: 8px;
     padding-right: 8px;
   }
@@ -859,7 +920,10 @@ html {
 @media (min-width: 0px) and (max-width: 767px) {
   .shows__output__row {
     flex-direction: column;
-    padding: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media (min-width: 1280px) {
@@ -941,6 +1005,8 @@ html {
 @media (min-width: 1280px) {
   .shows__output__row__col__label--firstrow {
     display: block;
+    padding-bottom: 24px;
+    padding-top: 24px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -953,4 +1019,9 @@ html {
 }
 .shows__output__row__button {
   background-color: none;
+}
+@media (min-width: 1280px) {
+  .shows__output__row__button {
+    align-self: flex-end;
+  }
 }/*# sourceMappingURL=shows.css.map */

@@ -72,16 +72,52 @@
 .shows{
     @include marginsL9L6L3;
     background-color: $colPrimary-White;
-    margin: 0px;
+    background-color: none;
+    display: flex;
+    @include displayDesktop{
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: $pad-desktop-header_before;
+        padding-bottom: $pad-desktop-header_after;
+    }
+    @include displayTablet{
+        flex-direction: column;
+        padding-top: $pad-tablet-header_before;
+        padding-bottom: $pad-tablet-header_after;
+        gap:0px;
+    }
+    @include displayMobile{
+        flex-direction: column;
+        padding-top: $pad-mobile-header_before;
+        padding-bottom: $pad-mobile-header_after;
+        gap: 0px;
+    }
+
 
     &__title{
-        background-color: none;
+        @include displayDesktop{
+            padding-top: $pad-L3b;
+            padding-bottom: $pad-L3b;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        @include displayTablet{
+            padding-top: $pad-L3b;
+            padding-bottom: $pad-L3b;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        @include displayMobile{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
     }
     &__output{
         display:flex;
         flex-direction: column;
         background-color: none;
-        //@include commentSpacing;
         @include displayDesktop{
             max-width: 600px;
             margin-left: auto;
@@ -91,14 +127,14 @@
             display: flex;
             border-bottom: 1px solid $colSecondary-Mercury;
             background-color: none;
-            @include revealing-animation;
+            @include revealing-animation-slideupOnly;
             
             @include displayDesktop{                
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                padding-top: $pad-L3b;
-                padding-bottom: $pad-L3b;
+                padding-top: $pad-L3;
+                padding-bottom: $pad-L3;
                 padding-left: 18px ;
                 padding-right: 18px ; 
             }
@@ -106,14 +142,17 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content:space-between;
-                padding-top: $pad-L3b;
-                padding-bottom: $pad-L3b;
+                padding-top: $pad-L3;
+                padding-bottom: $pad-L3;
                 padding-left: $pad-L2 ;
                 padding-right: $pad-L2 ; 
             }
             @include displayMobile{                
                 flex-direction: column;
-                padding: 16px;
+                padding-top: 16px;
+                padding-bottom: 16px;
+                padding-left: 0px;
+                padding-right: 0px;
             }
             @include commentSpacing;
             &:hover{
@@ -162,6 +201,8 @@
                          &--firstrow{
                             @include displayDesktop{
                                 display:block;
+                                padding-bottom: $pad-L3b;
+                                padding-top: $pad-L3b;
                              }
                              @include displayTablet{
                                  display:block;
@@ -174,6 +215,9 @@
             }
             &__button{
                 background-color: none;
+                @include displayDesktop{
+                    align-self: flex-end;    
+                }
              }
         }
 

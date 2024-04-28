@@ -218,19 +218,30 @@
     border-width: 1px;
     border-radius: 4px;
     @include displayDesktop{
-        min-height: 48px;
+        min-height: 1rem;
         padding: $pad-L3;
     }
     @include displayTablet{
-        min-height: 48px;
+        min-height: 1rem;
         padding: $pad-L3;
     }
     @include displayMobile{
-        min-height: 36px;
+        min-height: 1rem;
         padding: $pad-L2;
     }
     &:focus{
         border-color: $colPrimary-Black;
+    }
+    &--textArea{
+        @include displayDesktop{
+            min-height: 4rem ;
+        }
+        @include displayTablet{
+            min-height: 4rem;
+        }
+        @include displayMobile{
+            min-height: 5rem;
+        }
     }
 }
 
