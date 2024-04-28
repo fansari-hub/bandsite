@@ -3,13 +3,14 @@ Object responsible for providing "backbone"
 functionality for the comments ouput section which 
 includes getting data and updating the DOM.
 */
-let bandsiteComments = {
+const bandsiteComments = {
   // Comment data object
   comments: [
     {
       username: "_NOTINITALIZED_",
       timestamp: Date(),
       comment: "_NOTINITALIZED_",
+      imageURL: "_NOTINITIALIZED_"
     },
   ],
 
@@ -23,18 +24,21 @@ let bandsiteComments = {
       timestamp: Date.parse("02 Nov 2023 00:00:00 GMT"),
       comment:
         "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+      imageURL: ""
     };
     this.comments[1] = {
       username: "Christina Cabrera",
       timestamp: Date.parse("28 Oct 2023 00:00:00 GMT"),
       comment:
         "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+      imageURL: ""
     };
     this.comments[2] = {
       username: "Isaac Tadesse",
       timestamp: Date.parse("20 Oct 2023 00:00:00 GMT"),
       comment:
         "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+      imageURL: ""
     };
 
     for (var i = this.comments.length - 1; i >= 0; i--) {
@@ -43,25 +47,25 @@ let bandsiteComments = {
   },
 
   /* This method takes and saves a new comment from user input */
-  postComment: function (strUsername, strComment) {
+  postComment: function (strUsername, strComment, strImageURL) {
     let i = this.comments.push({
       username: strUsername,
       timestamp: Date.now(),
       comment: strComment,
+      imageURL: strImageURL
     });
     return i - 1;
   },
 
   /* This method return data from a single comment from the comments data */
-  getComment: function (commentID) {
-    let singleCommment = {
-      username: this.comments[commentID].username,
-      relativeTime: bandsiteUtils.getRelativeTime(
-        this.comments[commentID].timestamp
-      ),
-      comment: this.comments[commentID].comment,
+  getComment: function (numID) {
+    let singleComment = {
+      strUsername: this.comments[numID].username,
+      strRelativeTime: bandsiteUtils.getRelativeTime(this.comments[numID].timestamp),
+      strComment: this.comments[numID].comment,
+      strImageURL: this.comments[numID].imageURL,
     };
-    return singleCommment;
+    return singleComment;
   },
 
   /* This method clears the comment DOM area */
@@ -72,9 +76,10 @@ let bandsiteComments = {
 
   /* This method is responsible for updating the comment output area
   with required HTML elements and data for a single comment */
-  updatePage: function ({ username, relativeTime, comment }) {
+  updatePage: function ({ strUsername, strRelativeTime, strComment, strImageURL }) {
     var childElement;
     var parentElement;
+    
 
     parentElement = document.getElementById("commentsOutputContainer");
     childElement = document.createElement("div");
@@ -87,12 +92,19 @@ let bandsiteComments = {
     parentElement.appendChild(childElement);
 
     parentElement = childElement;
-    childElement = document.createElement("img");
-    childElement.classList.add("comments__output__row__left__img");
-    childElement.setAttribute("src", "./assets/images/Mohan-muruge.jpg");
-    childElement.setAttribute("alt", "user");
-    parentElement.appendChild(childElement);
-
+    if (strImageURL === ""){
+      childElement = document.createElement("div");
+      childElement.classList.add("comments__output__row__left__img");
+      parentElement.appendChild(childElement);
+    }
+    else{
+      childElement = document.createElement("img");
+      childElement.classList.add("comments__output__row__left__img");
+      childElement.setAttribute("src", strImageURL);
+      childElement.setAttribute("alt", "user");
+      parentElement.appendChild(childElement);
+    }
+    
     parentElement = childElement.parentElement.parentElement;
     childElement = document.createElement("div");
     childElement.classList.add("comments__output__row__right");
@@ -119,7 +131,7 @@ let bandsiteComments = {
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
     childElement.classList.add("type__commentsOutput--name");
-    childElement.innerText = username;
+    childElement.innerText = strUsername;
     parentElement.appendChild(childElement);
 
     parentElement = childElement.parentElement.parentElement;
@@ -133,7 +145,7 @@ let bandsiteComments = {
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
     childElement.classList.add("type__commentsOutput--date");
-    childElement.innerText = relativeTime;
+    childElement.innerText = strRelativeTime;
     parentElement.appendChild(childElement);
 
     parentElement = childElement.parentElement.parentElement.parentElement;
@@ -147,7 +159,7 @@ let bandsiteComments = {
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
     childElement.classList.add("type__commentsOutput--comment");
-    childElement.innerText = comment;
+    childElement.innerText = strComment;
     parentElement.appendChild(childElement);
   },
 };
@@ -161,7 +173,7 @@ to clear/reload the the comment output section.
 To use this object, must initalize by calling
 initalizeFormListener method.
 */
-let bandsiteForm = {
+const bandsiteForm = {
   initalizeFormListener: function () {
     let elementForm = document.getElementById("formCommentsMain");
     elementForm.addEventListener("submit", this.formValidation);
@@ -184,7 +196,8 @@ let bandsiteForm = {
     if (isValid) {
       let inputName = document.getElementById("formCommentsNameInput");
       let inputComment = document.getElementById("formCommentsCommentInput");
-      let i = bandsiteComments.postComment(inputName.value, inputComment.value);
+      let inputImg = document.getElementById("formCommentsUserImage");
+      let i = bandsiteComments.postComment(inputName.value, inputComment.value, inputImg.getAttribute("src"));
 
       if (i > 0) {
         inputName.value = "";
@@ -199,10 +212,10 @@ let bandsiteForm = {
 };
 
 /* Object for provideing utility functions */
-let bandsiteUtils = {
+const bandsiteUtils = {
   /* method converts elapsed time to human reasable format
   Provide a numeric timestamp and it will a string output*/
-  getRelativeTime: function (time) {
+  getRelativeTime: function (numTime) {
     /*
       Got original function from: https://codereview.stackexchange.com/questions/44623/output-human-readable-time. 
       Made the following improvements/ modifictions:
@@ -238,7 +251,7 @@ let bandsiteUtils = {
       values: [],
     };
 
-    let ms = Date.now() - time;
+    let ms = Date.now() - numTime;
     let msTotal = ms;
 
     lookup.values.push(ms / YEAR_MS);

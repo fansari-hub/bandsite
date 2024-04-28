@@ -2,11 +2,11 @@
 Object responsible for getting data and updating 
 the DOM shows area
 */
-let bandsiteShows = {
+const bandsiteShows = {
   //show list objects
   shows: [
     {
-      showdate: "_NOTINIT_",
+      showDate: "_NOTINIT_",
       showVenue: "_NOTINIT_",
       showLocation: "_NOTINIT",
     },
@@ -54,8 +54,8 @@ let bandsiteShows = {
     }
   },
   /* This method return data from a single show from the show data */
-  getShow: function (showID) {
-    return this.shows[showID];
+  getShow: function (NumID) {
+    return this.shows[NumID];
   },
 
   /* This method is responsible for updating the show output area
