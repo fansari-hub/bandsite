@@ -1,8 +1,8 @@
-@use 'partials/displays' as *;
-@use 'partials/typekit' as * ;
+@use 'partials/mixins' as *;
+@use 'partials/fonts' as * ;
 @use 'partials/colors' as * ;
 @use 'partials/anims' as * ;
-@use 'partials/var' as *;
+@use 'partials/variables' as *;
 @use 'partials/global' as site;
 
 

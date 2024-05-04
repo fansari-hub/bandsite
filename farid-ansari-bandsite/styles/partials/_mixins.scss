@@ -1,43 +1,23 @@
-@use 'displays' as *;
+@use 'variables' as *;
 
-$pad-L1: 4px;
-$pad-L2: 8px;
-$pad-L3: 16px;
-$pad-L3a: 18px;
-$pad-L3b: 24px;
-$pad-L4: 32px;
-$pad-L5: 40px;
-$pad-L6: 48px;
-$pad-L7: 56px;
-$pad-L8: 64px;
-$pad-L9: 80px;
-$pad-L10: 88px;
-$pad-L11: 96px;
-$pad-L12: 104px;
-$pad-L13: 112px;
-$pad-L14: 120px;
+@mixin displayDesktop{
+    @media (min-width: $breakpoint-desktop-s){
+        @content;
+    }
+}
 
+@mixin displayTablet{
+    @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
+        @content;
+    }
+}
 
-$pad-desktop-header_before: 36px;
-$pad-desktop-header_after: 24px;
-$pad-desktop-between: 24px;
+@mixin displayMobile{
+    @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
+        @content;
+    }
+}
 
-$pad-tablet-header_before: 24px;
-$pad-tablet-header_after: 16px;
-$pad-tablet-between: 24px;
-
-$pad-mobile-header_before: 24px;
-$pad-mobile-header_after: 16px;
-$pad-mobile-between: 16px;
-
-$grid-desktop-gutter: 24px;
-$grid-desktop-margin: 36px;
-
-$grid-tablet-gutter: 24px;
-$grid-tablet-margin: 36px;
-
-$grid-mobile-gutter: 16px;
-$grid-mobile-margin: 36px;
 
 
 @mixin commentSpacing{
