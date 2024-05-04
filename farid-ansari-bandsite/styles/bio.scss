@@ -5,6 +5,22 @@
 @use 'partials/var' as *;
 @use 'partials/global' as site;
 
+.hero{
+    height: 55vw;
+    color: $colPrimary-White;
+    margin: 0px;
+    background-image: url("../assets/images/hero-bio.jpg"), linear-gradient(#32323280, #32323280);
+    background-blend-mode:overlay;
+    background-size: cover;
+    background-position-y: -20px;
+    display: flex;
+    align-items: center;
+    &__bandTitle{
+        @include marginsL9L6L3;
+        font-family: 'Avenir-Demi';
+        
+    }
+}
 
 .band{
     padding-top: 0px;
@@ -145,5 +161,186 @@
                 width: 100%;       
             }
         }
+    }
+}
+
+.comments{
+    @include marginsL9L6L3;
+    background-color: $colPrimary-White;
+    @include displayDesktop{
+        padding-top: $pad-L6;
+    }
+    @include displayTablet{
+        padding-top: $pad-L6;
+    }
+    @include displayMobile{
+        padding-top: $pad-L2;
+    }
+
+    &__title{
+        padding-top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        @include displayDesktop{
+            padding-bottom: $pad-L4;
+        }
+        @include displayTablet{
+            padding-bottom: $pad-L4;
+        }
+        @include displayMobile{
+            padding-bottom: $pad-L3;
+        }
+        
+    }
+    &__form{
+        display:flex;
+        flex-direction: column;
+        @include commentSpacing;
+        @include displayDesktop{
+            max-width: 32.81rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__name{
+            display: flex;
+            flex-direction: column;
+            @include commentSpacing;
+            &__cont{
+                display: flex;
+                align-items: center;
+                @include commentSpacing;
+                &__left{
+                    flex-shrink: 0;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    @include avatarSizes;
+                    &__img{
+                        margin: 0 auto;
+                        margin-left: -15%;
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+                &__right{
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    @include displayDesktop{
+                        gap: $pad-L2;
+                     }
+                     @include displayTablet{
+                         gap: $pad-L2;
+                     }
+                     @include displayMobile{
+                         gap: $pad-L1;
+                     }
+                }
+            }
+        }
+        &__comment{
+            display: flex;
+            flex-direction: column;
+            @include commentSpacing;
+            &__cont{
+                display: flex;
+                @include commentSpacing;
+                &__left{
+                    flex-shrink: 0;
+                    @include avatarSizes;
+                }
+                &__right{
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                    @include displayDesktop{
+                        gap: $pad-L2;
+                     }
+                     @include displayTablet{
+                         gap: $pad-L2;
+                     }
+                     @include displayMobile{
+                         gap: $pad-L1;
+                     }
+                }
+            }
+        }
+        &__button{
+            &__cont{
+                display: flex;
+                @include commentSpacing;
+                &__left{
+                    flex-shrink: 0;
+                    @include avatarSizes;
+                }
+                &__right{
+                    flex-grow: 1;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    &__output{
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid $colSecondary-Mercury;
+        background-color: none;
+        padding-top: $pad-L2;
+        padding-bottom: $pad-L2;
+        @include commentSpacing;
+        @include displayDesktop{
+            max-width: 525px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        &__row{
+            display: flex;
+            border-top: 1px solid $colSecondary-Mercury;
+            padding-top: $pad-L3;
+            @include commentSpacing;
+            @include revealing-animation-slideupOnly;
+            &__left{
+                flex-shrink: 0;
+                overflow: hidden;
+                background-color: $colSecondary-Mercury;
+                border-radius: 50%;
+                @include avatarSizes;
+                &__img{
+                    margin: 0 auto;
+                    margin-left: -15%;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            &__right{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                background-color: none;
+                @include commentSpacing;
+                &__content{
+                    display: flex;
+                    flex-direction: column;
+                    @include commentSpacing;
+                    &__header{
+                        display: flex;
+                        justify-content: space-between;
+                        background-color: none;
+                        @include commentSpacing;
+                        &__name{
+                            background-color: none;
+                        }
+                        &__date{
+                            background-color: none;
+                        }
+                    }
+                    &__text{
+                        background-color: none;;
+                    }
+                }
+
+            }
+        }
+
     }
 }
