@@ -1,8 +1,8 @@
+@use 'partials/variables' as *;
+@use 'partials/colors' as * ;
 @use 'partials/mixins' as *;
 @use 'partials/fonts' as * ;
-@use 'partials/colors' as * ;
 @use 'partials/anims' as * ;
-@use 'partials/variables' as *;
 @use 'partials/global' as site;
 
 
@@ -115,12 +115,13 @@
         @include marginsL9L6L3;
     }
     &__cards{
+        @include paddingsL9L6L3;
+
         display: grid;
         max-width: 1280px;
         margin: auto;
         margin-top: 0px;
         margin-bottom: 0px;
-        @include marginsL9L6L3;
 
         @include displayDesktop{
            grid-template-columns: auto auto auto;

@@ -1,17 +1,16 @@
 @use 'variables' as *;
 
+//Mixins used for controlling css content based on breakpoints
 @mixin displayDesktop{
     @media (min-width: $breakpoint-desktop-s){
         @content;
     }
 }
-
 @mixin displayTablet{
     @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
         @content;
     }
 }
-
 @mixin displayMobile{
     @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
         @content;
@@ -19,33 +18,30 @@
 }
 
 
-
+//mixin used for the comments section
 @mixin commentSpacing{
     @media (min-width: $breakpoint-desktop-s){
         gap: $grid-desktop-gutter;
     }
-
     @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
         gap: $grid-tablet-gutter;
     }
-    
     @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
         gap: $grid-mobile-gutter;
     }
 }
 
 
+//mixin used for determining comments avatar size
 @mixin avatarSizes{
     @media (min-width: $breakpoint-desktop-s){
         width:  48px;
         height: 48px;
     }
-
     @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
         width:  48px;
         height: 48px;
     }
-    
     @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
         width:  36px;
         height: 36px;
@@ -53,6 +49,7 @@
 }
 
 
+//mixin used to create standard margins based on display breakpoints.
 @mixin marginsL10L9L3{
 
     @media (min-width: $breakpoint-desktop-s){
@@ -109,6 +106,7 @@
     }
 }
 
+//mixin used to create standard paddings based on display breakpoints.
 @mixin paddingsL9L6L3{
 
     @media (min-width: $breakpoint-desktop-s){
