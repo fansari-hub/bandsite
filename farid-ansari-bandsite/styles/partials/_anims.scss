@@ -1,5 +1,6 @@
 @use 'colors' as *;
-@use 'displays' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 // Animations in Use for this project
 
@@ -9,6 +10,15 @@
         transform:  translate(0px, 0px)
                     scale(1.5,1.5);
         filter:invert(1);
+    }
+}
+
+@keyframes unBlur{
+    0%{
+        filter: blur(20px) sepia(100%) opacity(0.0);
+    }
+    100%{
+        filter: blur(0px) sepia(100%) opacity(0.7);
     }
 }
 
@@ -76,15 +86,39 @@
     @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
         animation: linear reveal-side both;
         animation-timeline: --revealing-element;
-        animation-range: entry 50% cover 30%;
+        animation-range: entry 50% cover 25%;
     }
     
     @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
         animation: linear reveal-side both;
         animation-timeline: --revealing-element;
-        animation-range: entry 50% cover 30%;
+        animation-range: entry 50% cover 25%;
+    }
+    //end revealing-animation mixin
+}
+
+@mixin revealing-animation-slideupOnly{
+    //Begin revealing-animation mixin
+    view-timeline-name: --revealing-element;
+    view-timeline-axis: block;
+
+    @media (min-width: $breakpoint-desktop-s){
+        animation: linear reveal-up both;
+        animation-timeline: --revealing-element;
+        animation-range: entry 50% cover 40%;
     }
 
+    @media (min-width: $breakpoint-tablet-s) and (max-width: $breakpoint-tablet-e){
+        animation: linear reveal-up both;
+        animation-timeline: --revealing-element;
+        animation-range: entry 50% cover 25%;
+    }
+    
+    @media (min-width: $breakpoint-mobile-s) and (max-width:$breakpoint-mobile-e){
+        animation: linear reveal-up both;
+        animation-timeline: --revealing-element;
+        animation-range: entry 50% cover 25%;
+    }
     //end revealing-animation mixin
 }
 

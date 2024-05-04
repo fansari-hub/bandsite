@@ -1,5 +1,5 @@
-@use 'displays' as *;
-@use 'var' as *;
+@use 'mixins' as *;
+@use 'variables' as *;
 @use 'colors' as *;
 
 @font-face{
@@ -191,20 +191,115 @@
 }
 
 .type__label{
+    color: $colPrimary-Silver;
+    margin: 0px;
     @include displayDesktop{
         font-size: 0.75rem;
         line-height: 0.6;
-        font-family: 'Avenir';
+        font-family: 'Avenir-Demi';
     }
     @include displayTablet{
         font-size: 0.75rem;
         line-height: 0.6;
-        font-family: 'Avenir';
+        font-family: 'Avenir-Demi';
     }
     @include displayMobile{
         font-size: 0.625rem;
         line-height: 2;
-        font-family: 'Avenir';
+        font-family: 'Avenir-Demi';
     }
+}
+
+.type__inputText{
+    font-family: 'Avenir';
+    background-color: $colSecondary-Albaster;
+    border-color: $colSecondary-Mercury;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    @include displayDesktop{
+        min-height: 1rem;
+        padding: $pad-L3;
+    }
+    @include displayTablet{
+        min-height: 1rem;
+        padding: $pad-L3;
+    }
+    @include displayMobile{
+        min-height: 1rem;
+        padding: $pad-L2;
+    }
+    &:focus{
+        border-color: $colPrimary-Black;
+    }
+    &--textArea{
+        @include displayDesktop{
+            min-height: 4rem ;
+        }
+        @include displayTablet{
+            min-height: 4rem;
+        }
+        @include displayMobile{
+            min-height: 5rem;
+        }
+    }
+}
+
+.type__inputButton{
+    background-color: $colPrimary-Black;
+    color: $colPrimary-White;
+    border-color: $colPrimary-Black;
+    border-radius: 4px;
+    border-style: solid;
+    height: 40px;
+    font-family: 'Avenir-Demi';
     
+    @include displayDesktop{
+        font-size: 1rem;
+        min-width: 150px;
+        padding-left: $pad-L4;
+        padding-right: $pad-L4;
+    }
+    @include displayTablet{
+        font-size: 1rem;
+        min-width: 150px;
+        padding-left: $pad-L4;
+        padding-right: $pad-L4;
+    }
+    @include displayMobile{
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    &:hover{
+        background-color: $colSecondary-DarkBlack;
+        border-color: $colSecondary-DarkBlack;
+    }
+}
+
+.type__commentsOutput{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Avenir';
+    @include displayDesktop{
+        font-size: 0.875rem;
+        line-height: 1.57;    
+    }
+    @include displayTablet{
+        font-size: 0.875rem;
+        line-height: 1.57;
+    }
+    @include displayMobile{
+        font-size: 0.8125rem;
+        line-height: 1.38;
+    }
+    &--name{
+        font-family: 'Avenir-Demi';
+        color: $colPrimary-Black;
+    }
+    &--date{
+        color: $colPrimary-Silver;
+    }
+    &--comment{
+        color: $colPrimary-Black;
+    }
 }

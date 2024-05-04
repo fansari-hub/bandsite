@@ -12,12 +12,12 @@
             <div class = "head__logo">
                 <a href="./index.html"><img class = "head__logo__image" src="./assets/logos/Logo-bandsite.svg" alt="bansite logo"/></a>
             </div>            
-            <navigation class = "head__nav">
+            <nav class = "head__nav">
                 <ul class = "head__nav__navbar">
                     <li class = "head__nav__navbar__item  head__nav__navbar__item--active"><a class = "type__linknostyle" href="./index.html">Biography</a></li>
-                    <li class="head__nav__navbar__item">Shows</li>
+                    <li class="head__nav__navbar__item"><a class = "type__linknostyle" href="./pages/shows.html">Shows</a></li>
                 </ul>
-            </navigation>
+            </nav>
         </header>
 
         <main>
@@ -82,8 +82,50 @@
                     </div>
                 </div>
             </section>
+            <section class ="comments">
+                <h2 class="type__sectionHeader comments__title">Join the Conversation</h2>
+                <form method = "post" action = "x.html" id="formCommentsMain">
+                    <div class ="comments__form">
+                        <div class = "comments__form__name">
+                            <div class = "comments__form__name__cont">
+                                <div class = "comments__form__name__cont__left">
+                                    <img class = "comments__form__name__cont__left__img" id="formCommentsUserImage" src="./assets/images/Mohan-muruge.jpg" alt="user">
+                                </div>
+                                <div class = "comments__form__name__cont__right">
+                                    <label class = "type__label" for="formCommentsNameInput" id="formCommentsNameLabel">NAME</label>
+                                    <input class = "type__inputText js__mandatory" type="text" id="formCommentsNameInput" name="formCommentsNameInput" placeholder="Enter your name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "comments__form__comment">
+                            <div class = "comments__form__comment__cont">
+                                <div class = "comments__form__comment__cont__left">
+                                    <!-- Empty on purposes -->
+                                </div>
+                                <div class = "comments__form__comment__cont__right">
+                                    <label class = "type__label" for="formCommentsCommentInput" id="formCommentCommentLabel">COMMENT</label>
+                                    <textarea class = "type__inputText type__inputText--textArea js__mandatory" name="formCommentsCommentInput" id="formCommentsCommentInput" placeholder="Add a new comment"></textarea>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class = "comments__form__button">
+                            <div class = "comments__form__button__cont">
+                                <div class = "comments__form__button__cont__left">
+                                    <!-- Empty on purposes -->
+                                </div>
+                                <div class = "comments__form__button__cont__right">
+                                    <input class = "type__inputButton" name="formCommentsButton"  id="formCommentsButton" type="submit" value="COMMENT">
+                                </div>  
+                            </div>                        
+                        </div>
+                    </div>
+                </form>
+                <div class = "comments__output" id="commentsOutputContainer">
+                    <!-- Generated Content Goes here -->
+                </div>
+            </section>
         </main>
-    </body>
+    
 
 
     <footer class="footer">
@@ -93,9 +135,9 @@
             </div>
             
             <div class="footer__social__media">
-                <a href="http://www.instagram.com" target="_new"><img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-instagram.svg" alt="Instagram"/></a>
-                <a href="http://www.facebook.com" target="_new"><img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-facebook.svg" alt="Facebook"/></a>
-                <a href="http://www.twitter.com" target="_new"><img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-twitter.svg" alt="Twitter"/></a>
+                <a href="http://www.instagram.com" target="_blank"><img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-instagram.svg" alt="Instagram"/></a>
+                <a href="http://www.facebook.com" target="_blank"><img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-facebook.svg" alt="Facebook"/></a>
+                <a href="http://www.twitter.com" target="_blank"><img class = "footer__social__media__icon" src ="assets/icons/SVG/Icon-twitter.svg" alt="Twitter"/></a>
             </div>
         </div>
         
@@ -119,7 +161,7 @@
                     Booking Agent for<BR>
                     US / South America / Japan
                 </p>
-                <p class="type__footerText"><a class="type__linknostyle" href="mailto:bookings@Limitlessag.com?subject=Information">bookings@Limitlessag.com</p></a>
+                <p class="type__footerText"><a class="type__linknostyle" href="mailto:bookings@Limitlessag.com?subject=Information">bookings@Limitlessag.com</a></p>
             </div>
             
             <div class="footer__contactList__contact">
@@ -137,4 +179,6 @@
         </div>
 
     </footer>
+    <script src="./scripts/index-page.js"></script>
+    </body>
 </html>

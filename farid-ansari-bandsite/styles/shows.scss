@@ -1,0 +1,226 @@
+@use 'partials/mixins' as *;
+@use 'partials/fonts' as * ;
+@use 'partials/colors' as * ;
+@use 'partials/anims' as * ;
+@use 'partials/variables' as *;
+@use 'partials/global' as site;
+
+.hero{
+    min-height: 55vw;
+    color: $colPrimary-White;
+    margin: 0px;
+    background-image: url("../assets/images/hero-shows.jpg"), linear-gradient(#32323280, #32323280);
+    background-blend-mode:overlay;
+    background-size: cover;
+    background-position-y: -40px;
+    background-position-x: 0px;
+    @include paddingsL9L6L3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    gap: $pad-L2;
+    @include displayDesktop{
+        flex-direction: row;
+        align-items: center;
+    }
+    @include displayTablet{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    @include displayMobile{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    &__left{
+        &__albumTitle{
+            // background-color: yellow;
+            font-family: 'Avenir';
+            padding-top: $pad-L4;
+            margin: 0px;
+        }
+        &__songTitle{
+            //background-color: blue;
+            font-family: 'Avenir-Demi';
+            padding-top: $pad-L2;
+            margin: 0px;
+            @include displayDesktop{
+                max-width: 19rem;
+            }
+            @include displayTablet{
+                max-width: 22rem;
+            }
+            @include displayMobile{
+                max-width: 12.5rem;
+            }
+        }
+    }
+    &__right{
+        //background-color: orange;
+        //flex-grow: 1;
+        &__songEmbed{
+            //flex-shrink:1;
+            padding-top: $pad-L2;
+            padding-bottom: $pad-L2;
+            filter : sepia(100%) opacity(0.7) drop-shadow(0px 0px 10px magenta);
+            animation: unBlur;
+            animation-duration: 1s;
+            animation-fill-mode:backwards;
+            border:0px;
+        }
+    }
+}
+
+.shows{
+    @include marginsL9L6L3;
+    background-color: $colPrimary-White;
+    background-color: none;
+    display: flex;
+    @include displayDesktop{
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: $pad-desktop-header_before;
+        padding-bottom: $pad-desktop-header_after;
+    }
+    @include displayTablet{
+        flex-direction: column;
+        padding-top: $pad-tablet-header_before;
+        padding-bottom: $pad-tablet-header_after;
+        gap:0px;
+    }
+    @include displayMobile{
+        flex-direction: column;
+        padding-top: $pad-mobile-header_before;
+        padding-bottom: $pad-mobile-header_after;
+        gap: 0px;
+    }
+
+
+    &__title{
+        @include displayDesktop{
+            padding-top: $pad-L3b;
+            padding-bottom: $pad-L3b;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        @include displayTablet{
+            padding-top: $pad-L3b;
+            padding-bottom: $pad-L3b;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        @include displayMobile{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    }
+    &__output{
+        display:flex;
+        flex-direction: column;
+        background-color: none;
+        @include displayDesktop{
+            max-width: 37.5rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__row{
+            display: flex;
+            border-bottom: 1px solid $colSecondary-Mercury;
+            background-color: none;
+            @include revealing-animation-slideupOnly;
+            
+            @include displayDesktop{                
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: $pad-L3;
+                padding-bottom: $pad-L3;
+                padding-left: $pad-L3a ;
+                padding-right: $pad-L3a ; 
+            }
+            @include displayTablet{                
+                flex-direction: row;
+                align-items: center;
+                justify-content:space-between;
+                padding-top: $pad-L3;
+                padding-bottom: $pad-L3;
+                padding-left: $pad-L2 ;
+                padding-right: $pad-L2 ; 
+            }
+            @include displayMobile{                
+                flex-direction: column;
+                padding-top: $pad-L3;
+                padding-bottom: $pad-L3;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            @include commentSpacing;
+            &:hover{
+                @include displayDesktop{                
+                    background-color: $colSecondary-Albaster;
+                }
+                @include displayTablet{                
+                    background-color: $colSecondary-Albaster;
+                }
+                @include displayMobile{                
+                    background-color: none;
+                }
+            }
+            &--active{
+                @include displayDesktop{                
+                    background-color: $colSecondary-Mercury !important;
+                }
+                @include displayTablet{                
+                    background-color: $colSecondary-Mercury !important;
+                }
+                @include displayMobile{                
+                    background-color: none;
+                }
+            }
+            &__col{
+                    background-color: none;
+                    flex-grow: 0;
+                    display: flex;
+                    flex-direction: column;
+                    @include displayDesktop{
+                        gap: $grid-desktop-gutter;
+                     }
+                     @include displayTablet{
+                         gap: $grid-tablet-gutter;
+                     }
+                     @include displayMobile{
+                         gap: $pad-L1;
+                     }
+                     &__label{
+                        @include displayDesktop{
+                            display:none;
+                         }
+                         @include displayTablet{
+                             display: none;
+                         }
+                         &--firstrow{
+                            @include displayDesktop{
+                                display:block;
+                                padding-bottom: $pad-L3b;
+                                padding-top: $pad-L3b;
+                             }
+                             @include displayTablet{
+                                 display:block;
+                             }
+                         }
+                     }
+                     &__content{
+                        background-color: none;
+                     }
+            }
+            &__button{
+                background-color: none;
+                @include displayDesktop{
+                    align-self: flex-end;    
+                }
+             }
+        }
+
+    }
+}
