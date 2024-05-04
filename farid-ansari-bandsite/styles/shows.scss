@@ -65,6 +65,7 @@
             animation: unBlur;
             animation-duration: 1s;
             animation-fill-mode:backwards;
+            border:0px;
         }
     }
 }
@@ -119,7 +120,7 @@
         flex-direction: column;
         background-color: none;
         @include displayDesktop{
-            max-width: 600px;
+            max-width: 37.5rem;
             margin-left: auto;
             margin-right: auto;
         }
@@ -135,8 +136,8 @@
                 justify-content: space-between;
                 padding-top: $pad-L3;
                 padding-bottom: $pad-L3;
-                padding-left: 18px ;
-                padding-right: 18px ; 
+                padding-left: $pad-L3a ;
+                padding-right: $pad-L3a ; 
             }
             @include displayTablet{                
                 flex-direction: row;
@@ -149,8 +150,8 @@
             }
             @include displayMobile{                
                 flex-direction: column;
-                padding-top: 16px;
-                padding-bottom: 16px;
+                padding-top: $pad-L3;
+                padding-bottom: $pad-L3;
                 padding-left: 0px;
                 padding-right: 0px;
             }

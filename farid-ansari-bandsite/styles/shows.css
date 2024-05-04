@@ -782,6 +782,7 @@ html {
   animation: unBlur;
   animation-duration: 1s;
   animation-fill-mode: backwards;
+  border: 0px;
 }
 
 .shows {
@@ -862,7 +863,7 @@ html {
 }
 @media (min-width: 1280px) {
   .shows__output {
-    max-width: 600px;
+    max-width: 37.5rem;
     margin-left: auto;
     margin-right: auto;
   }

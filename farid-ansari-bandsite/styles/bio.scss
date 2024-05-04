@@ -16,11 +16,10 @@
     background-position-y: -20px;
     display: flex;
     align-items: center;
-    @include paddingsL9L6L3;
     &__bandTitle{
+        @include marginsL9L6L3;
         font-family: 'Avenir-Demi';
-        padding: 0px;
-        margin: 0px;
+        
     }
 }
 
@@ -33,7 +32,6 @@
         background-size: cover;
         background-position-y: -35px;       
         background-position-x: 0px; 
-        
         @include displayDesktop{
             height: 40vw;
         }
@@ -43,7 +41,6 @@
         @include displayMobile{
             height: 50vw;
         }
-        
         @include revealing-animation-slideupOnly;
         @include marginsL10L9L3;
         &__image{
@@ -74,7 +71,7 @@
     @include revealing-animation;
     @include marginsL10L9L3;
     &__title{
-      margin: 0px;    
+      margin: 0px;
     }
     &__columns{
         display: flex;
@@ -212,7 +209,7 @@
         flex-direction: column;
         @include commentSpacing;
         @include displayDesktop{
-            max-width: 525px;
+            max-width: 32.81rem;
             margin-left: auto;
             margin-right: auto;
         }

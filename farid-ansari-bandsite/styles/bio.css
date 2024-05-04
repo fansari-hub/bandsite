@@ -711,28 +711,26 @@ html {
   display: flex;
   align-items: center;
 }
+.hero__bandTitle {
+  font-family: "Avenir-Demi";
+}
 @media (min-width: 1280px) {
-  .hero {
-    padding-left: 120px;
-    padding-right: 120px;
+  .hero__bandTitle {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
-  .hero {
-    padding-left: 48px;
-    padding-right: 48px;
+  .hero__bandTitle {
+    margin-left: 48px;
+    margin-right: 48px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
-  .hero {
-    padding-left: 16px;
-    padding-right: 16px;
+  .hero__bandTitle {
+    margin-left: 16px;
+    margin-right: 16px;
   }
-}
-.hero__bandTitle {
-  font-family: "Avenir-Demi";
-  padding: 0px;
-  margin: 0px;
 }
 
 .band {
@@ -1219,7 +1217,7 @@ html {
 }
 @media (min-width: 1280px) {
   .comments__form {
-    max-width: 525px;
+    max-width: 32.81rem;
     margin-left: auto;
     margin-right: auto;
   }
