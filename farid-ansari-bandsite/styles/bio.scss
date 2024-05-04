@@ -6,7 +6,6 @@
 @use 'partials/anims' as * ;
 @use 'partials/global' as site;
 
-
 .hero{
     height: 55vw;
     color: $colPrimary-White;
@@ -191,7 +190,6 @@
     }
 
     &__title{
-        background-color: none;
         padding-top: 0px;
         margin-top: 0px;
         margin-bottom: 0px;
