@@ -1,8 +1,9 @@
 //Test to re-trigger main merge
 @use 'partials/variables' as *;
 @use 'partials/colors' as * ;
+@use 'partials/mixins' as *;
+@use 'partials/fonts' as * ;
 @use 'partials/anims' as * ;
-@use 'partials/var' as *;
 @use 'partials/global' as site;
 
 .hero{
@@ -31,7 +32,6 @@
         background-size: cover;
         background-position-y: -35px;       
         background-position-x: 0px; 
-        
         @include displayDesktop{
             height: 40vw;
         }
@@ -41,8 +41,7 @@
         @include displayMobile{
             height: 50vw;
         }
-        
-        @include revealing-animation;
+        @include revealing-animation-slideupOnly;
         @include marginsL10L9L3;
         &__image{
             width: 100%;
@@ -72,7 +71,7 @@
     @include revealing-animation;
     @include marginsL10L9L3;
     &__title{
-      margin: 0px;    
+      margin: 0px;
     }
     &__columns{
         display: flex;
@@ -100,16 +99,29 @@
 .gallery{
     background-color: $colSecondary-Albaster;
     margin: 0px;
+    
+    @include displayDesktop{
+        padding-bottom: $pad-L4;
+    }
+    @include displayTablet{
+        padding-bottom: $pad-L4;
+    }
+    @include displayMobile{
+        padding-bottom: $pad-L3;
+    }
+    
+
     &__title{
         @include marginsL9L6L3;
     }
     &__cards{
+        @include paddingsL9L6L3;
+
         display: grid;
         max-width: 1280px;
         margin: auto;
         margin-top: 0px;
         margin-bottom: 0px;
-        @include marginsL9L6L3;
 
         @include displayDesktop{
            grid-template-columns: auto auto auto;

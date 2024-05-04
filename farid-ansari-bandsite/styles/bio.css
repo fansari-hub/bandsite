@@ -193,32 +193,159 @@
   }
 }
 
+.type__label {
+  color: #AFAFAF;
+  margin: 0px;
+}
 @media (min-width: 1280px) {
   .type__label {
     font-size: 0.75rem;
     line-height: 0.6;
-    font-family: "Avenir";
+    font-family: "Avenir-Demi";
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .type__label {
     font-size: 0.75rem;
     line-height: 0.6;
-    font-family: "Avenir";
+    font-family: "Avenir-Demi";
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .type__label {
     font-size: 0.625rem;
     line-height: 2;
-    font-family: "Avenir";
+    font-family: "Avenir-Demi";
   }
+}
+
+.type__inputText {
+  font-family: "Avenir";
+  background-color: #FAFAFA;
+  border-color: #E1E1E1;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+@media (min-width: 1280px) {
+  .type__inputText {
+    min-height: 1rem;
+    padding: 16px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .type__inputText {
+    min-height: 1rem;
+    padding: 16px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .type__inputText {
+    min-height: 1rem;
+    padding: 8px;
+  }
+}
+.type__inputText:focus {
+  border-color: #323232;
+}
+@media (min-width: 1280px) {
+  .type__inputText--textArea {
+    min-height: 4rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .type__inputText--textArea {
+    min-height: 4rem;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .type__inputText--textArea {
+    min-height: 5rem;
+  }
+}
+
+.type__inputButton {
+  background-color: #323232;
+  color: #FFFFFF;
+  border-color: #323232;
+  border-radius: 4px;
+  border-style: solid;
+  height: 40px;
+  font-family: "Avenir-Demi";
+}
+@media (min-width: 1280px) {
+  .type__inputButton {
+    font-size: 1rem;
+    min-width: 150px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .type__inputButton {
+    font-size: 1rem;
+    min-width: 150px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .type__inputButton {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
+.type__inputButton:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.type__commentsOutput {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Avenir";
+}
+@media (min-width: 1280px) {
+  .type__commentsOutput {
+    font-size: 0.875rem;
+    line-height: 1.57;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .type__commentsOutput {
+    font-size: 0.875rem;
+    line-height: 1.57;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .type__commentsOutput {
+    font-size: 0.8125rem;
+    line-height: 1.38;
+  }
+}
+.type__commentsOutput--name {
+  font-family: "Avenir-Demi";
+  color: #323232;
+}
+.type__commentsOutput--date {
+  color: #AFAFAF;
+}
+.type__commentsOutput--comment {
+  color: #323232;
 }
 
 @keyframes iconHover {
   100% {
     transform: translate(0px, 0px) scale(1.5, 1.5);
     filter: invert(1);
+  }
+}
+@keyframes unBlur {
+  0% {
+    filter: blur(20px) sepia(100%) opacity(0);
+  }
+  100% {
+    filter: blur(0px) sepia(100%) opacity(0.7);
   }
 }
 @keyframes navHover {
@@ -407,41 +534,6 @@ html {
   color: #FFFFFF;
 }
 
-.hero {
-  height: 55vw;
-  color: #FFFFFF;
-  margin: 0px;
-  background-image: url("../assets/images/hero-bio.jpg"), linear-gradient(rgba(50, 50, 50, 0.5019607843), rgba(50, 50, 50, 0.5019607843));
-  background-blend-mode: overlay;
-  background-size: cover;
-  background-position-y: -20px;
-  display: flex;
-  align-items: center;
-}
-@media (min-width: 1280px) {
-  .hero {
-    padding-left: 120px;
-    padding-right: 120px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1279px) {
-  .hero {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-}
-@media (min-width: 0px) and (max-width: 767px) {
-  .hero {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-.hero__bandTitle {
-  font-family: "Avenir-Demi";
-  padding: 0px;
-  margin: 0px;
-}
-
 .footer {
   margin-top: 16px;
   padding-top: 24px;
@@ -608,6 +700,39 @@ html {
   order: 2;
 }
 
+.hero {
+  height: 55vw;
+  color: #FFFFFF;
+  margin: 0px;
+  background-image: url("../assets/images/hero-bio.jpg"), linear-gradient(rgba(50, 50, 50, 0.5019607843), rgba(50, 50, 50, 0.5019607843));
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position-y: -20px;
+  display: flex;
+  align-items: center;
+}
+.hero__bandTitle {
+  font-family: "Avenir-Demi";
+}
+@media (min-width: 1280px) {
+  .hero__bandTitle {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero__bandTitle {
+    margin-left: 48px;
+    margin-right: 48px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .hero__bandTitle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
 .band {
   padding-top: 0px;
   margin-top: 0px;
@@ -645,16 +770,16 @@ html {
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .band__imgCont {
-    animation: linear reveal-side both;
+    animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .band__imgCont {
-    animation: linear reveal-side both;
+    animation: linear reveal-up both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -716,14 +841,14 @@ html {
   .band__quote {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .band__quote {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -761,14 +886,14 @@ html {
   .band__quote__person {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .band__quote__person {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -807,14 +932,14 @@ html {
   .bio {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .bio {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
@@ -868,6 +993,21 @@ html {
   margin: 0px;
 }
 @media (min-width: 1280px) {
+  .gallery {
+    padding-bottom: 32px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .gallery {
+    padding-bottom: 32px;
+  }
+}
+@media (min-width: 0px) and (max-width: 767px) {
+  .gallery {
+    padding-bottom: 16px;
+  }
+}
+@media (min-width: 1280px) {
   .gallery__title {
     margin-left: 10%;
     margin-right: 10%;
@@ -894,20 +1034,20 @@ html {
 }
 @media (min-width: 1280px) {
   .gallery__cards {
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .gallery__cards {
-    margin-left: 48px;
-    margin-right: 48px;
+    padding-left: 48px;
+    padding-right: 48px;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .gallery__cards {
-    margin-left: 16px;
-    margin-right: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 @media (min-width: 1280px) {
@@ -949,14 +1089,14 @@ html {
   .gallery__cards__card {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
   .gallery__cards__card {
     animation: linear reveal-side both;
     animation-timeline: --revealing-element;
-    animation-range: entry 50% cover 30%;
+    animation-range: entry 50% cover 25%;
   }
 }
 @media (min-width: 1280px) {
