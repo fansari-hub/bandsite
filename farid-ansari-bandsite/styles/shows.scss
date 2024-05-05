@@ -119,10 +119,12 @@
         display:flex;
         flex-direction: column;
         background-color: none;
+        background-color: none;
         @include displayDesktop{
-            max-width: 37.5rem;
+            flex-grow: 1;
+            max-width: 800px;
             margin-left: auto;
-            margin-right: auto;
+            //margin-right: auto;
         }
         &__row{
             display: flex;

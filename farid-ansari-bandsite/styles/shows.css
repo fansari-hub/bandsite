@@ -860,12 +860,13 @@ html {
   display: flex;
   flex-direction: column;
   background-color: none;
+  background-color: none;
 }
 @media (min-width: 1280px) {
   .shows__output {
-    max-width: 37.5rem;
+    flex-grow: 1;
+    max-width: 800px;
     margin-left: auto;
-    margin-right: auto;
   }
 }
 .shows__output__row {
