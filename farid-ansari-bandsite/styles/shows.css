@@ -860,7 +860,6 @@ html {
   display: flex;
   flex-direction: column;
   background-color: none;
-  background-color: none;
 }
 @media (min-width: 1280px) {
   .shows__output {
@@ -900,7 +899,7 @@ html {
 @media (min-width: 1280px) {
   .shows__output__row {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-center;
     justify-content: space-between;
     padding-top: 16px;
     padding-bottom: 16px;

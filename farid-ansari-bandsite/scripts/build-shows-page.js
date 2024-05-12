@@ -1,5 +1,5 @@
 
-const showsAPI = new BandSiteApi("7e18a94d-7330-4b8b-ab25-14ce2304b7c4");
+const showsAPI = new BandSiteApi("e1a5e534-c0c2-4c7c-8fd7-a531d4485a46");
 /* 
 Object responsible for getting data and updating 
 the DOM shows area

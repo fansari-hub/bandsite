@@ -1,4 +1,4 @@
-const bioAPI = new BandSiteApi("7e18a94d-7330-4b8b-ab25-14ce2304b7c4");
+const bioAPI = new BandSiteApi("e1a5e534-c0c2-4c7c-8fd7-a531d4485a46");
 /* 
 Object responsible for providing "backbone"
 functionality for the comments ouput section which 
