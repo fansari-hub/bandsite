@@ -21,11 +21,18 @@ const bandsiteShows = {
   },
   /* This method return data from a single show from the show data */
   getShow: function (NumID) {
-    let date = new Date(this.shows[NumID].date);
+    const date = new Intl.DateTimeFormat('en-US', {
+      weekday : 'short',
+      month : 'short',
+      day: '2-digit',
+      year: 'numeric',
+      timeZone: 'America/Los_Angeles',
+    }).format(this.shows[NumID].date);
+    //, {dateStyle:'full',timeStyle:'long',}
 
     let singleshow =
     {
-      showDate: date.toLocaleString(),
+      showDate: date,
       showVenue: this.shows[NumID].place,
       showLocation: this.shows[NumID].location
     }
