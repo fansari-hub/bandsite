@@ -1,3 +1,4 @@
+const bioAPI = new BandSiteApi("7e18a94d-7330-4b8b-ab25-14ce2304b7c4");
 /* 
 Object responsible for providing "backbone"
 functionality for the comments ouput section which 
@@ -5,65 +6,29 @@ includes getting data and updating the DOM.
 */
 const bandsiteComments = {
   // Comment data object
-  comments: [
-    {
-      username: "_NOTINITALIZED_",
-      timestamp: Date(),
-      comment: "_NOTINITALIZED_",
-      imageURL: "_NOTINITIALIZED_"
-    },
-  ],
-
+  
   /*
   This method initialized the data with default values
   and makes the necessary calls get data and update the page with comments
   */
-  loadComments: function () {
-    this.comments[0] = {
-      username: "Victor Pinto",
-      timestamp: Date.parse("02 Nov 2023 00:00:00 GMT"),
-      comment:
-        "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-      imageURL: ""
-    };
-    this.comments[1] = {
-      username: "Christina Cabrera",
-      timestamp: Date.parse("28 Oct 2023 00:00:00 GMT"),
-      comment:
-        "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-      imageURL: ""
-    };
-    this.comments[2] = {
-      username: "Isaac Tadesse",
-      timestamp: Date.parse("20 Oct 2023 00:00:00 GMT"),
-      comment:
-        "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-      imageURL: ""
-    };
+  comments : [],
+  loadComments: async function () {
+    this.comments = await bioAPI.getComments();
+    console.log("Hello");
 
-    for (var i = this.comments.length - 1; i >= 0; i--) {
-      this.updatePage(this.getComment(i));
+   for (var i = this.comments.length - 1; i >= 0; i--) {
+     this.updatePage(this.getComment(i));
     }
   },
 
-  /* This method takes and saves a new comment from user input */
-  postComment: function (strUsername, strComment, strImageURL) {
-    let i = this.comments.push({
-      username: strUsername,
-      timestamp: Date.now(),
-      comment: strComment,
-      imageURL: strImageURL
-    });
-    return i - 1;
-  },
 
   /* This method return data from a single comment from the comments data */
-  getComment: function (numID) {
+  getComment: function (strID) {
     let singleComment = {
-      strUsername: this.comments[numID].username,
-      strRelativeTime: bandsiteUtils.getRelativeTime(this.comments[numID].timestamp),
-      strComment: this.comments[numID].comment,
-      strImageURL: this.comments[numID].imageURL,
+      strUsername: this.comments[strID].name,
+      strRelativeTime: bandsiteUtils.getRelativeTime(this.comments[strID].timestamp),
+      strComment: this.comments[strID].comment,
+      strImageURL: "" //this.comments[strID].imageURL,
     };
     return singleComment;
   },
@@ -179,7 +144,7 @@ const bandsiteForm = {
     elementForm.addEventListener("submit", this.formValidation);
   },
 
-  formValidation: function (event) {
+  formValidation: async function (event) {
     event.preventDefault();
     let isValid = true;
     let inputElement = document.getElementsByClassName("js__mandatory");
@@ -197,9 +162,9 @@ const bandsiteForm = {
       let inputName = document.getElementById("formCommentsNameInput");
       let inputComment = document.getElementById("formCommentsCommentInput");
       let inputImg = document.getElementById("formCommentsUserImage");
-      let i = bandsiteComments.postComment(inputName.value, inputComment.value, inputImg.getAttribute("src"));
+      let response = await bioAPI.postComment({comment: inputComment.value, name: inputName.value});
 
-      if (i > 0) {
+      if (response.id !== "") {
         inputName.value = "";
         inputComment.value = "";
         bandsiteComments.clearPage();
@@ -308,6 +273,8 @@ const bandsiteUtils = {
     }
   },
 };
+
+
 
 // On page load, load default comments
 bandsiteComments.loadComments();

@@ -1,53 +1,19 @@
+
+const showsAPI = new BandSiteApi("7e18a94d-7330-4b8b-ab25-14ce2304b7c4");
 /* 
 Object responsible for getting data and updating 
 the DOM shows area
 */
 const bandsiteShows = {
   //show list objects
-  shows: [
-    {
-      showDate: "_NOTINIT_",
-      showVenue: "_NOTINIT_",
-      showLocation: "_NOTINIT",
-    },
-  ],
+  shows: [],
 
   /*
   This method initialized the data with default values
   and makes the necessary calls get data and update the page with shows.
   */
-  initalizeShows: function () {
-    this.shows[0] = {
-      showDate: "Mon Sept 09 2024",
-      showVenue: "Ronald Lane",
-      showLocation: "San Fransico, CA",
-    };
-    this.shows[1] = {
-      showDate: "Tue Sept 17 2024",
-      showVenue: "Pier 3 East",
-      showLocation: "San Fransico, CA",
-    };
-    this.shows[2] = {
-      showDate: "Sat Oct 12 2024",
-      showVenue: "View Lounge",
-      showLocation: "San Fransico, CA",
-    };
-    this.shows[3] = {
-      showDate: "Sat Nov 16 2024",
-      showVenue: "Hyatt Agency",
-      showLocation: "San Fransico, CA",
-    };
-    this.shows[4] = {
-      showDate: "Fri Nov 29 2024",
-      showVenue: "Moscow Center",
-      showLocation: "San Fransico, CA",
-    };
-    this.shows[5] = {
-      showDate: "Wed Dec 18 2024",
-      showVenue: "Press Club",
-      showLocation: "San Fransico, CA",
-    };
-
+  initalizeShows: async function () {
+    this.shows = await showsAPI.getShows();
     for (var i = 0; i < this.shows.length; i++) {
       if (i == 0) this.updatePage(this.getShow(i), i, true);
       else this.updatePage(this.getShow(i), i);
@@ -55,7 +21,15 @@ const bandsiteShows = {
   },
   /* This method return data from a single show from the show data */
   getShow: function (NumID) {
-    return this.shows[NumID];
+    let date = new Date(this.shows[NumID].date);
+
+    let singleshow =
+    {
+      showDate: date.toLocaleString(),
+      showVenue: this.shows[NumID].place,
+      showLocation: this.shows[NumID].location
+    }
+    return singleshow;
   },
 
   /* This method is responsible for updating the show output area
