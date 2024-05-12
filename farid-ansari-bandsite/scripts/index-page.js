@@ -14,10 +14,8 @@ const bandsiteComments = {
   comments : [],
   loadComments: async function () {
     this.comments = await bioAPI.getComments();
-    console.log("Hello");
-
-   for (var i = this.comments.length - 1; i >= 0; i--) {
-     this.updatePage(this.getComment(i));
+    for (var i = this.comments.length - 1; i >= 0; i--) {
+      this.updatePage(this.getComment(i));
     }
   },
 
@@ -28,7 +26,7 @@ const bandsiteComments = {
       strUsername: this.comments[strID].name,
       strRelativeTime: bandsiteUtils.getRelativeTime(this.comments[strID].timestamp),
       strComment: this.comments[strID].comment,
-      strImageURL: "" //this.comments[strID].imageURL,
+      strImageURL: ""
     };
     return singleComment;
   },
