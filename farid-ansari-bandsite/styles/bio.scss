@@ -298,7 +298,7 @@
         background-color: none;
         padding-top: $pad-L2;
         padding-bottom: $pad-L2;
-        @include commentSpacing;
+        //@include commentSpacing;
         @include displayDesktop{
             max-width: 525px;
             margin-left: auto;
@@ -351,13 +351,18 @@
                     }
                     &__actions{
                         padding-top: $pad-L2;
-                        padding-bottom: $pad-L2;
+                        padding-bottom: $pad-L3;
                         display: flex;
                         background-color: none;
                         justify-content: space-between;
                         &__like{
                             display: flex;
-                            gap: $pad-L3;
+                            gap: $pad-L2;
+                            align-items: flex-start;
+                        }
+                        &__delete{
+                            display: flex;
+                            gap: $pad-L2;
                             align-items: flex-start;
                         }
                     }

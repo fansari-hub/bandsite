@@ -15,10 +15,11 @@
 
 @keyframes actionIconHover{
 
-    100%{        
-        filter: drop-shadow(0px 0px 2px magenta);
+    100%{
+        filter:invert(1);        
+        filter: drop-shadow(0px 0px 1px black);
         transform:  translate(0px, 0px)
-        scale(1.2,1.2);
+        scale(1.1,1.1);
     }
 }
 

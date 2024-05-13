@@ -137,27 +137,33 @@ const bandsiteComments = {
     parentElement = childElement;
     childElement = document.createElement("img")
     childElement.setAttribute("src", "./assets/icons/svg/icon-like.svg")
-    childElement.setAttribute("alt", "likes");
+    childElement.setAttribute("alt", "like");
     childElement.classList.add("type__actionButton");
     childElement.addEventListener("click", async () => { 
       await bioAPI.likeComment(numID); 
       let updElement = document.getElementById('like_' + numID); 
-      updElement.innerText = (Number(updElement.getAttribute("js_value"))+1) + ' likes';
+      updElement.innerText = (Number(updElement.getAttribute("js_value"))+1) + ' people liked this.';
     }, {once: true});
     parentElement.appendChild(childElement);
     
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
-    childElement.innerHTML = numLikes + ' likes';
+    childElement.classList.add("type__commentsOutput--date");
+    childElement.innerText = numLikes + '  people liked this.';
     childElement.setAttribute("id", 'like_' + numID)
     childElement.setAttribute("js_value", numLikes)
     parentElement.appendChild(childElement);
 
 
     parentElement = childElement.parentElement.parentElement;
+    childElement = document.createElement("div");
+    childElement.classList.add("comments__output__row__right__content__actions__delete");
+    parentElement.appendChild(childElement);
+
+    parentElement=childElement;
     childElement = document.createElement("img");
-    childElement.innerHTML = 'D'
     childElement.setAttribute("src", "./assets/icons/svg/icon-delete.svg")
+    childElement.setAttribute("alt", "delete");
     childElement.classList.add("type__actionButton");
     childElement.addEventListener("click", async () => { 
       await bioAPI.deleteComment(numID); 
@@ -165,6 +171,14 @@ const bandsiteComments = {
       bandsiteComments.loadComments(); 
     }, {once: true});
     parentElement.appendChild(childElement);
+
+    childElement = document.createElement("p");
+    childElement.classList.add("type__commentsOutput");
+    childElement.classList.add("type__commentsOutput--date");
+    childElement.innerText = 'Delete';
+    parentElement.appendChild(childElement);
+
+
   },
 };
 
