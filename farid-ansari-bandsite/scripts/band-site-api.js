@@ -26,8 +26,23 @@ class BandSiteApi{
         let response =  await axios.get(this.baseURL + '/showdates' + this.apiAppend);
         console.log(response.data);
         return response.data;
-
     }
+
+
+    async likeComment(id){
+        console.log("likeComment() called");
+        let response =  await axios.put(this.baseURL + '/comments' + '/' + id + '/like' + this.apiAppend);
+        console.log(response.data);
+        return response.data;
+    }
+
+    async deleteComment(id){
+        console.log("deleteComment() called");
+        let response =  await axios.delete(this.baseURL + '/comments' + '/' + id + this.apiAppend);
+        console.log(response.data);
+        return response.data;
+    }
+    
 }
 
 

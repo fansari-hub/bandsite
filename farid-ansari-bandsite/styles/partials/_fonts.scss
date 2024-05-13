@@ -273,6 +273,16 @@
     &:hover{
         background-color: $colSecondary-DarkBlack;
         border-color: $colSecondary-DarkBlack;
+        cursor:pointer;
+    }
+}
+
+.type__actionButton{
+    &:hover{
+        animation: actionIconHover;
+        animation-duration: 0.25s;
+        animation-fill-mode: forwards;
+        cursor:pointer;
     }
 }
 

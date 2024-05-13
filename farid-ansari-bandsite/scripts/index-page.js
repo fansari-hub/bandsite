@@ -26,7 +26,9 @@ const bandsiteComments = {
       strUsername: this.comments[strID].name,
       strRelativeTime: bandsiteUtils.getRelativeTime(this.comments[strID].timestamp),
       strComment: this.comments[strID].comment,
-      strImageURL: ""
+      strImageURL: "",
+      numID: this.comments[strID].id,
+      numLikes: this.comments[strID].likes
     };
     return singleComment;
   },
@@ -39,10 +41,9 @@ const bandsiteComments = {
 
   /* This method is responsible for updating the comment output area
   with required HTML elements and data for a single comment */
-  updatePage: function ({ strUsername, strRelativeTime, strComment, strImageURL }) {
+  updatePage: function ({ strUsername, strRelativeTime, strComment, strImageURL, numID, numLikes }) {
     var childElement;
     var parentElement;
-    
 
     parentElement = document.getElementById("commentsOutputContainer");
     childElement = document.createElement("div");
@@ -113,16 +114,56 @@ const bandsiteComments = {
 
     parentElement = childElement.parentElement.parentElement.parentElement;
     childElement = document.createElement("div");
-    childElement.classList.add(
-      "comments__form__comment__cont__right__content__text"
-    );
+    childElement.classList.add("comments__output__row__right__content__text");
     parentElement.appendChild(childElement);
-
+  
     parentElement = childElement;
     childElement = document.createElement("p");
     childElement.classList.add("type__commentsOutput");
     childElement.classList.add("type__commentsOutput--comment");
     childElement.innerText = strComment;
+    parentElement.appendChild(childElement);
+
+
+    childElement = document.createElement("div");
+    childElement.classList.add("comments__output__row__right__content__actions");
+    parentElement.appendChild(childElement);
+    
+    parentElement = childElement;
+    childElement = document.createElement("div");
+    childElement.classList.add("comments__output__row__right__content__actions__like");
+    parentElement.appendChild(childElement);
+
+    parentElement = childElement;
+    childElement = document.createElement("img")
+    childElement.setAttribute("src", "./assets/icons/svg/icon-like.svg")
+    childElement.setAttribute("alt", "likes");
+    childElement.classList.add("type__actionButton");
+    childElement.addEventListener("click", async () => { 
+      await bioAPI.likeComment(numID); 
+      let updElement = document.getElementById('like_' + numID); 
+      updElement.innerText = (Number(updElement.getAttribute("js_value"))+1) + ' likes';
+    }, {once: true});
+    parentElement.appendChild(childElement);
+    
+    childElement = document.createElement("p");
+    childElement.classList.add("type__commentsOutput");
+    childElement.innerHTML = numLikes + ' likes';
+    childElement.setAttribute("id", 'like_' + numID)
+    childElement.setAttribute("js_value", numLikes)
+    parentElement.appendChild(childElement);
+
+
+    parentElement = childElement.parentElement.parentElement;
+    childElement = document.createElement("img");
+    childElement.innerHTML = 'D'
+    childElement.setAttribute("src", "./assets/icons/svg/icon-delete.svg")
+    childElement.classList.add("type__actionButton");
+    childElement.addEventListener("click", async () => { 
+      await bioAPI.deleteComment(numID); 
+      bandsiteComments.clearPage(); 
+      bandsiteComments.loadComments(); 
+    }, {once: true});
     parentElement.appendChild(childElement);
   },
 };

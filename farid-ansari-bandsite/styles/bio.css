@@ -298,6 +298,14 @@
 .type__inputButton:hover {
   background-color: #000000;
   border-color: #000000;
+  cursor: pointer;
+}
+
+.type__actionButton:hover {
+  animation: actionIconHover;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+  cursor: pointer;
 }
 
 .type__commentsOutput {
@@ -338,6 +346,12 @@
   100% {
     transform: translate(0px, 0px) scale(1.5, 1.5);
     filter: invert(1);
+  }
+}
+@keyframes actionIconHover {
+  100% {
+    filter: drop-shadow(0px 0px 2px magenta);
+    transform: translate(0px, 0px) scale(1.2, 1.2);
   }
 }
 @keyframes unBlur {
@@ -1600,4 +1614,16 @@ html {
 }
 .comments__output__row__right__content__text {
   background-color: none;
+}
+.comments__output__row__right__content__actions {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  background-color: none;
+  justify-content: space-between;
+}
+.comments__output__row__right__content__actions__like {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }/*# sourceMappingURL=bio.css.map */

@@ -347,7 +347,19 @@
                         }
                     }
                     &__text{
-                        background-color: none;;
+                        background-color: none;
+                    }
+                    &__actions{
+                        padding-top: $pad-L2;
+                        padding-bottom: $pad-L2;
+                        display: flex;
+                        background-color: none;
+                        justify-content: space-between;
+                        &__like{
+                            display: flex;
+                            gap: $pad-L3;
+                            align-items: flex-start;
+                        }
                     }
                 }
 
