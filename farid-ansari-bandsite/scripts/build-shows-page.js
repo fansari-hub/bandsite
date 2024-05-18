@@ -39,21 +39,32 @@ const bandsiteShows = {
     return singleshow;
   },
 
+    /* This function is responsible for creating a single DOM element */
+    createDOMElement: function (parentElementID, tag = "div", text = "", classes =[], attributes=[{name: '', value: ''}] ){
+      let currentElement = document.createElement(tag);
+      currentElement.innerHTML = text;
+      
+      classes.forEach(element => {
+        currentElement.classList.add(element);
+      });
+      
+      attributes.forEach(element => {
+        if (element.name !== '')
+          currentElement.setAttribute(element.name, element.value)
+      });
+      parentElementID.appendChild(currentElement);
+      return currentElement;
+    },
+  
+
   /* This method is responsible for updating the show output area
   with required HTML elements and data for a single show */
-  updatePage: function (
-    { showDate, showVenue, showLocation },
-    index,
-    isfirstRow = false
-  ) {
-    var childElement;
-    var parentElement;
-
-    parentElement = document.getElementById("showsOutputContainer");
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row");
-    childElement.id = "rowID" + index;
-    childElement.addEventListener("click", () => {
+  updatePage: function ({ showDate, showVenue, showLocation },index, isfirstRow = false) 
+  {
+    let parentElement = document.getElementById("showsOutputContainer");
+    let elementShowsOutputRow = this.createDOMElement(parentElement, "div", "", ["shows__output__row"]);
+    elementShowsOutputRow.id = "rowID" + index;
+    elementShowsOutputRow.addEventListener("click", () => {
       let row = document.getElementById("rowID" + index);
       let rowElements = document.querySelectorAll(".shows__output__row");
       for (x = 0; x < rowElements.length; x++) {
@@ -61,111 +72,37 @@ const bandsiteShows = {
       }
       row.classList.add("shows__output__row--active");
     });
-    parentElement.appendChild(childElement);
 
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col");
-    parentElement.appendChild(childElement);
 
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col__label");
+    let elementShowsOutputRowCol1 = this.createDOMElement(elementShowsOutputRow, "div", "", ["shows__output__row__col"]);
+    let elementShowsOutputRowCol1Label = this.createDOMElement(elementShowsOutputRowCol1, "div", "", ["shows__output__row__col__label"]);
     if (isfirstRow == true)
-      childElement.classList.add("shows__output__row__col__label--firstrow");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__label");
-    childElement.innerText = "DATE";
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col__content");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.classList.add("type__commentsOutput--name");
-    childElement.id = "dateID" + index;
-    childElement.innerText = showDate;
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col__label");
+        elementShowsOutputRowCol1Label.classList.add("shows__output__row__col__label--firstrow");
+    this.createDOMElement(elementShowsOutputRowCol1Label, "p", "DATE", ["type__label"]);
+    let elementShowsOutputRowCol1Content = this.createDOMElement(elementShowsOutputRowCol1, "div", "", ["shows__output__row__col__content"]);
+    let elementShowsOutputRowCol1ContentP = this.createDOMElement(elementShowsOutputRowCol1Content, "p", showDate , ["type__commentsOutput", "type__commentsOutput--name"]);
+    elementShowsOutputRowCol1ContentP.id = "dateID" + index;
+       
+    let elementShowsOutputRowCol2 = this.createDOMElement(elementShowsOutputRow, "div", "", ["shows__output__row__col"]);
+    let elementShowsOutputRowCol2Label = this.createDOMElement(elementShowsOutputRowCol2, "div", "", ["shows__output__row__col__label"]);
     if (isfirstRow == true)
-      childElement.classList.add("shows__output__row__col__label--firstrow");
-    parentElement.appendChild(childElement);
+        elementShowsOutputRowCol2Label.classList.add("shows__output__row__col__label--firstrow");
+    this.createDOMElement(elementShowsOutputRowCol2Label, "p", "Vanue", ["type__label"]);
+    let elementShowsOutputRowCol2Content = this.createDOMElement(elementShowsOutputRowCol2, "div", "", ["shows__output__row__col__content"]);
+    let elementShowsOutputRowCol2ContentP = this.createDOMElement(elementShowsOutputRowCol2Content, "p", showVenue , ["type__commentsOutput"]);
+    elementShowsOutputRowCol2ContentP.id = "venudID" + index;
 
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__label");
-    childElement.innerText = "VENUE";
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col__content");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.id = "venueID" + index;
-    childElement.innerText = showVenue;
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col__label");
+    let elementShowsOutputRowCol3 = this.createDOMElement(elementShowsOutputRow, "div", "", ["shows__output__row__col"]);
+    let elementShowsOutputRowCol3Label = this.createDOMElement(elementShowsOutputRowCol3, "div", "", ["shows__output__row__col__label"]);
     if (isfirstRow == true)
-      childElement.classList.add("shows__output__row__col__label--firstrow");
-    parentElement.appendChild(childElement);
+        elementShowsOutputRowCol3Label.classList.add("shows__output__row__col__label--firstrow");
+    this.createDOMElement(elementShowsOutputRowCol3Label, "p", "Location", ["type__label"]);
+    let elementShowsOutputRowCol3Content = this.createDOMElement(elementShowsOutputRowCol3, "div", "", ["shows__output__row__col__content"]);
+    let elementShowsOutputRowCol3ContentP = this.createDOMElement(elementShowsOutputRowCol3Content, "p", showLocation , ["type__commentsOutput"]);
+    elementShowsOutputRowCol3ContentP.id = "LocationID" + index;
 
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__label");
-    childElement.innerText = "LOCATION";
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__col__content");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.id = "locationID" + index;
-    childElement.innerText = showLocation;
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("shows__output__row__button");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("input");
-    childElement.classList.add("type__inputButton");
-    childElement.id = "buttonID" + index;
-    childElement.setAttribute("type", "submit");
-    childElement.setAttribute("value", "BUY TICKETS");
-    parentElement.appendChild(childElement);
+    let elementCommentsOutputRowButton = this.createDOMElement(elementShowsOutputRow, "div", "", ["shows__output__row__button"]);
+    this.createDOMElement(elementCommentsOutputRowButton, "input", "", ["type__inputButton"], [{name: "type", value:"submit"}, {name:"value", value:"BUY TICKETS"}]);
   },
 };
 

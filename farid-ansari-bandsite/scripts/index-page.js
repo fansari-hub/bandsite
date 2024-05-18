@@ -39,146 +39,66 @@ const bandsiteComments = {
     parentElement.innerHTML = "";
   },
 
+  /* This function is responsible for creating a single DOM element */
+  createDOMElement: function (parentElementID, tag = "div", text = "", classes =[], attributes=[{name: '', value: ''}] ){
+    let currentElement = document.createElement(tag);
+    currentElement.innerHTML = text;
+    
+    classes.forEach(element => {
+      currentElement.classList.add(element);
+    });
+    
+    attributes.forEach(element => {
+      if (element.name !== '')
+        currentElement.setAttribute(element.name, element.value)
+    });
+    parentElementID.appendChild(currentElement);
+    return currentElement;
+  },
+
+
   /* This method is responsible for updating the comment output area
   with required HTML elements and data for a single comment */
   updatePage: function ({ strUsername, strRelativeTime, strComment, strImageURL, numID, numLikes }) {
-    var childElement;
-    var parentElement;
+    let parentElement;
 
     parentElement = document.getElementById("commentsOutputContainer");
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__left");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
+    let elementCommentsOutputRow = this.createDOMElement(parentElement, "div", "", ["comments__output__row"]);
+    let elementCommentsOutputRowLeft = this.createDOMElement(elementCommentsOutputRow, "div", "", ["comments__output__row_left"]);
+          
     if (strImageURL === ""){
-      childElement = document.createElement("div");
-      childElement.classList.add("comments__output__row__left__img");
-      parentElement.appendChild(childElement);
+      this.createDOMElement(elementCommentsOutputRowLeft, "div", "", ["comments__output__row__left__img"]);
     }
     else{
-      childElement = document.createElement("img");
-      childElement.classList.add("comments__output__row__left__img");
-      childElement.setAttribute("src", strImageURL);
-      childElement.setAttribute("alt", "user");
-      parentElement.appendChild(childElement);
+      this.createDOMElement(elementCommentsOutputRowLeft, "img", "", ["comments__output__row__left__img"], [{name: "src", value: strImageURL},{name: "alt", value: "user"}]);
     }
     
-    parentElement = childElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content__header");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add(
-      "comments__output__row__right__content__header__name"
-    );
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.classList.add("type__commentsOutput--name");
-    childElement.innerText = strUsername;
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add(
-      "comments__output__row__right__content__header__date"
-    );
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.classList.add("type__commentsOutput--date");
-    childElement.innerText = strRelativeTime;
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement.parentElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content__text");
-    parentElement.appendChild(childElement);
-  
-    parentElement = childElement;
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.classList.add("type__commentsOutput--comment");
-    childElement.innerText = strComment;
-    parentElement.appendChild(childElement);
-
-
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content__actions");
-    parentElement.appendChild(childElement);
-    
-    parentElement = childElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content__actions__like");
-    parentElement.appendChild(childElement);
-
-    parentElement = childElement;
-    childElement = document.createElement("img")
-    childElement.setAttribute("src", "./assets/icons/svg/icon-like.svg")
-    childElement.setAttribute("alt", "like");
-    childElement.classList.add("type__actionButton");
-    childElement.addEventListener("click", async () => { 
+    let elementCommentsOutputRowRight = this.createDOMElement(elementCommentsOutputRow, "div", "", ["comments__output__row__right"]);
+    let elementCommentsOutputRowRightContent = this.createDOMElement(elementCommentsOutputRowRight, "div", "", ["comments__output__row__right__content"]);
+    let elementCommentsOutputRowRightContentHeader = this.createDOMElement(elementCommentsOutputRowRightContent, "div", "", ["comments__output__row__right__content__header"]);
+    let elementCommentsOutputRowRightContentHeaderName = this.createDOMElement(elementCommentsOutputRowRightContentHeader, "div", "", ["comments__output__row__right__content__header__name"]);
+    this.createDOMElement(elementCommentsOutputRowRightContentHeaderName, "p", strUsername, ["type__commentsOutput", "type__commentsOutput--name" ]);
+    let elementCommentsOutputRowRightContentHeaderDate = this.createDOMElement(elementCommentsOutputRowRightContentHeader, "div", "", ["comments__output__row__right__content__header__date"]);
+    this.createDOMElement(elementCommentsOutputRowRightContentHeaderDate, "p", strRelativeTime, ["type__commentsOutput", "type__commentsOutput--date" ]);
+    let elementCommentsOutputRowRightContentText = this.createDOMElement(elementCommentsOutputRowRightContent, "div", "", ["comments__output__row__right__content__text"]);
+    this.createDOMElement(elementCommentsOutputRowRightContentText, "p", strComment, ["type__commentsOutput", "type__commentsOutput--comment"]);
+    let elementCommentsOutputRowRightContentActions = this.createDOMElement(elementCommentsOutputRowRightContent, "div", "", ["comments__output__row__right__content__actions"]);
+    let elementCommentsOutputRowRightContentActionsLike = this.createDOMElement(elementCommentsOutputRowRightContentActions, "div", "", ["comments__output__row__right__content__actions__like"]);
+    let elementCommentsOutputRowRightContentActionsLikeImg = this.createDOMElement(elementCommentsOutputRowRightContentActionsLike, "img", "", ["type__actionButton"], [{name: "src", value :"./assets/icons/svg/icon-like.svg"}, {name:"alt", value:"like"}]);
+    elementCommentsOutputRowRightContentActionsLikeImg.addEventListener("click", async () => { 
       await bioAPI.likeComment(numID); 
       let updElement = document.getElementById('like_' + numID); 
       updElement.innerText = (Number(updElement.getAttribute("js_value"))+1) + ' people liked this.';
     }, {once: true});
-    parentElement.appendChild(childElement);
-    
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.classList.add("type__commentsOutput--date");
-    childElement.innerText = numLikes + '  people liked this.';
-    childElement.setAttribute("id", 'like_' + numID)
-    childElement.setAttribute("js_value", numLikes)
-    parentElement.appendChild(childElement);
-
-
-    parentElement = childElement.parentElement.parentElement;
-    childElement = document.createElement("div");
-    childElement.classList.add("comments__output__row__right__content__actions__delete");
-    parentElement.appendChild(childElement);
-
-    parentElement=childElement;
-    childElement = document.createElement("img");
-    childElement.setAttribute("src", "./assets/icons/svg/icon-delete.svg")
-    childElement.setAttribute("alt", "delete");
-    childElement.classList.add("type__actionButton");
-    childElement.addEventListener("click", async () => { 
+    this.createDOMElement(elementCommentsOutputRowRightContentActionsLike, "p", numLikes + '  people liked this.', ["type__commentsOutput", "type__commentsOutput--date"],[{name: "id" , value: 'like_' + numID},{name: "js_value", value: numLikes}]);
+    let elementCommentsOutputRowRightContentActionsDelete = this.createDOMElement(elementCommentsOutputRowRightContentActions, "div", "", ["comments__output__row__right__content__actions__delete"]);
+    let elementCommentsOutputRowRightContentActionsDeleteImg = this.createDOMElement(elementCommentsOutputRowRightContentActionsDelete, "img", "", ["type__actionButton"], [{name:"src", value:"./assets/icons/svg/icon-delete.svg"}, {name:"alt", value:"delete"}]);
+    elementCommentsOutputRowRightContentActionsDeleteImg.addEventListener("click", async () => { 
       await bioAPI.deleteComment(numID); 
       bandsiteComments.clearPage(); 
       bandsiteComments.loadComments(); 
     }, {once: true});
-    parentElement.appendChild(childElement);
-
-    childElement = document.createElement("p");
-    childElement.classList.add("type__commentsOutput");
-    childElement.classList.add("type__commentsOutput--date");
-    childElement.innerText = 'Delete';
-    parentElement.appendChild(childElement);
-
-
+    this.createDOMElement(elementCommentsOutputRowRightContentActionsDelete, "p", "Delete", ["type__commentsOutput", "type__commentsOutput--date"]);
   },
 };
 
