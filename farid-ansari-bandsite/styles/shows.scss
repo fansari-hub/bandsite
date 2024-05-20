@@ -125,6 +125,32 @@
             margin-left: auto;
             //margin-right: auto;
         }
+        &__label{
+            display: none;
+            @include revealing-animation-slideupOnly;;
+            @include displayDesktop{     
+                display: flex;           
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding-left: $pad-L3a ;
+                padding-right: $pad-L3a ; 
+                padding-bottom: $pad-L1;
+            }
+            @include displayTablet{      
+                display: flex;                     
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding-left: $pad-L2 ;
+                padding-right: $pad-L2 ; 
+                padding-bottom: $pad-L1;
+            }
+            &__col{
+                width: 10rem;
+                background-color: none;
+            }
+        }
         &__row{
             display: flex;
             border-bottom: 1px solid $colSecondary-Mercury;
@@ -133,7 +159,7 @@
             
             @include displayDesktop{                
                 flex-direction: row;
-                align-items: flex-center;
+                align-items: center;
                 justify-content: space-between;
                 padding-top: $pad-L3;
                 padding-bottom: $pad-L3;
@@ -170,10 +196,10 @@
             }
             &--active{
                 @include displayDesktop{                
-                    background-color: $colSecondary-Mercury !important;
+                    background-color: $colSecondary-Mercury;
                 }
                 @include displayTablet{                
-                    background-color: $colSecondary-Mercury !important;
+                    background-color: $colSecondary-Mercury;
                 }
                 @include displayMobile{                
                     background-color: none;
@@ -184,6 +210,7 @@
                     flex-grow:0;
                     display: flex;
                     flex-direction: column;
+                    width: 10rem;
                     @include displayDesktop{
                         gap: $grid-desktop-gutter;
                      }
@@ -200,16 +227,16 @@
                          @include displayTablet{
                              display: none;
                          }
-                         &--firstrow{
-                            @include displayDesktop{
-                                display:block;
-                                padding-bottom: $pad-L3b;
-                                padding-top: $pad-L3b;
-                             }
-                             @include displayTablet{
-                                 display:block;
-                             }
-                         }
+                        //  &--firstrow{
+                        //     @include displayDesktop{
+                        //         display:block;
+                        //         padding-bottom: $pad-L3b;
+                        //         padding-top: $pad-L3b;
+                        //      }
+                        //      @include displayTablet{
+                        //         display:block;
+                        //      }
+                        //  }
                      }
                      &__content{
                         background-color: none;

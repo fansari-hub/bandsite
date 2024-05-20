@@ -6,19 +6,18 @@ includes getting data and updating the DOM.
 */
 const bandsiteComments = {
   // Comment data object
-  
+
   /*
   This method initialized the data with default values
   and makes the necessary calls get data and update the page with comments
   */
-  comments : [],
+  comments: [],
   loadComments: async function () {
     this.comments = await bioAPI.getComments();
     for (var i = this.comments.length - 1; i >= 0; i--) {
       this.updatePage(this.getComment(i));
     }
   },
-
 
   /* This method return data from a single comment from the comments data */
   getComment: function (strID) {
@@ -28,7 +27,7 @@ const bandsiteComments = {
       strComment: this.comments[strID].comment,
       strImageURL: "",
       numID: this.comments[strID].id,
-      numLikes: this.comments[strID].likes
+      numLikes: this.comments[strID].likes,
     };
     return singleComment;
   },
@@ -40,22 +39,20 @@ const bandsiteComments = {
   },
 
   /* This function is responsible for creating a single DOM element */
-  createDOMElement: function (parentElementID, tag = "div", text = "", classes =[], attributes=[{name: '', value: ''}] ){
+  setDOM: function (parentElementID, tag = "div", text = "", classes = [], attributes = [{ name: "", value: "" }]) {
     let currentElement = document.createElement(tag);
     currentElement.innerHTML = text;
-    
-    classes.forEach(element => {
+
+    classes.forEach((element) => {
       currentElement.classList.add(element);
     });
-    
-    attributes.forEach(element => {
-      if (element.name !== '')
-        currentElement.setAttribute(element.name, element.value)
+
+    attributes.forEach((element) => {
+      if (element.name !== "") currentElement.setAttribute(element.name, element.value);
     });
     parentElementID.appendChild(currentElement);
     return currentElement;
   },
-
 
   /* This method is responsible for updating the comment output area
   with required HTML elements and data for a single comment */
@@ -63,42 +60,42 @@ const bandsiteComments = {
     let parentElement;
 
     parentElement = document.getElementById("commentsOutputContainer");
-    let elementCommentsOutputRow = this.createDOMElement(parentElement, "div", "", ["comments__output__row"]);
-    let elementCommentsOutputRowLeft = this.createDOMElement(elementCommentsOutputRow, "div", "", ["comments__output__row_left"]);
-          
-    if (strImageURL === ""){
-      this.createDOMElement(elementCommentsOutputRowLeft, "div", "", ["comments__output__row__left__img"]);
+    let elOutputRow = this.setDOM(parentElement, "div", "", ["comments__output__row"]);
+    let elOutputRowLeft = this.setDOM(elOutputRow, "div", "", ["comments__output__row_left"]);
+
+    if (strImageURL === "") {
+      this.setDOM(elOutputRowLeft, "div", "", ["comments__output__row__left__img"]);
+    } else {
+      this.setDOM(elOutputRowLeft, "img", "", ["comments__output__row__left__img"], [{ name: "src", value: strImageURL }, { name: "alt", value: "user" },]);
     }
-    else{
-      this.createDOMElement(elementCommentsOutputRowLeft, "img", "", ["comments__output__row__left__img"], [{name: "src", value: strImageURL},{name: "alt", value: "user"}]);
-    }
+
+    let elOutputRowRight = this.setDOM(elOutputRow, "div", "", ["comments__output__row__right"]);
+    let elOutputRowRightContent = this.setDOM(elOutputRowRight, "div", "", ["comments__output__row__right__content"]);
+    let elOutputRowRightContentHeader = this.setDOM(elOutputRowRightContent, "div", "", ["comments__output__row__right__content__header"]);
+    let elOutputRowRightContentHeaderName = this.setDOM(elOutputRowRightContentHeader, "div", "", ["comments__output__row__right__content__header__name"]);
+    this.setDOM(elOutputRowRightContentHeaderName, "p", strUsername, ["type__commentsOutput", "type__commentsOutput--name"]);
+    let elOutputRowRightContentHeaderDate = this.setDOM(elOutputRowRightContentHeader, "div", "", ["comments__output__row__right__content__header__date"]);
+    this.setDOM(elOutputRowRightContentHeaderDate, "p", strRelativeTime, ["type__commentsOutput", "type__commentsOutput--date"]);
+    let elOutputRowRightContentText = this.setDOM(elOutputRowRightContent, "div", "", ["comments__output__row__right__content__text"]);
+    this.setDOM(elOutputRowRightContentText, "p", strComment, ["type__commentsOutput", "type__commentsOutput--comment"]);
+    let elOutputRowRightContentActions = this.setDOM(elOutputRowRightContent, "div", "", ["comments__output__row__right__content__actions"]);
+    let elOutputRowRightContentActionsLike = this.setDOM(elOutputRowRightContentActions, "div", "", ["comments__output__row__right__content__actions__like"]);
+    let elOutputRowRightContentActionsLikeImg = this.setDOM(elOutputRowRightContentActionsLike, "img", "", ["type__actionButton"], [{ name: "src", value: "./assets/icons/svg/icon-like.svg" }, { name: "alt", value: "like" },]);
+    elOutputRowRightContentActionsLikeImg.addEventListener("click",async () => {
+        await bioAPI.likeComment(numID);
+        let updElement = document.getElementById("like_" + numID);
+        updElement.innerText = Number(updElement.getAttribute("js_value")) + 1 + " people liked this.";
+      }, { once: true } );
     
-    let elementCommentsOutputRowRight = this.createDOMElement(elementCommentsOutputRow, "div", "", ["comments__output__row__right"]);
-    let elementCommentsOutputRowRightContent = this.createDOMElement(elementCommentsOutputRowRight, "div", "", ["comments__output__row__right__content"]);
-    let elementCommentsOutputRowRightContentHeader = this.createDOMElement(elementCommentsOutputRowRightContent, "div", "", ["comments__output__row__right__content__header"]);
-    let elementCommentsOutputRowRightContentHeaderName = this.createDOMElement(elementCommentsOutputRowRightContentHeader, "div", "", ["comments__output__row__right__content__header__name"]);
-    this.createDOMElement(elementCommentsOutputRowRightContentHeaderName, "p", strUsername, ["type__commentsOutput", "type__commentsOutput--name" ]);
-    let elementCommentsOutputRowRightContentHeaderDate = this.createDOMElement(elementCommentsOutputRowRightContentHeader, "div", "", ["comments__output__row__right__content__header__date"]);
-    this.createDOMElement(elementCommentsOutputRowRightContentHeaderDate, "p", strRelativeTime, ["type__commentsOutput", "type__commentsOutput--date" ]);
-    let elementCommentsOutputRowRightContentText = this.createDOMElement(elementCommentsOutputRowRightContent, "div", "", ["comments__output__row__right__content__text"]);
-    this.createDOMElement(elementCommentsOutputRowRightContentText, "p", strComment, ["type__commentsOutput", "type__commentsOutput--comment"]);
-    let elementCommentsOutputRowRightContentActions = this.createDOMElement(elementCommentsOutputRowRightContent, "div", "", ["comments__output__row__right__content__actions"]);
-    let elementCommentsOutputRowRightContentActionsLike = this.createDOMElement(elementCommentsOutputRowRightContentActions, "div", "", ["comments__output__row__right__content__actions__like"]);
-    let elementCommentsOutputRowRightContentActionsLikeImg = this.createDOMElement(elementCommentsOutputRowRightContentActionsLike, "img", "", ["type__actionButton"], [{name: "src", value :"./assets/icons/svg/icon-like.svg"}, {name:"alt", value:"like"}]);
-    elementCommentsOutputRowRightContentActionsLikeImg.addEventListener("click", async () => { 
-      await bioAPI.likeComment(numID); 
-      let updElement = document.getElementById('like_' + numID); 
-      updElement.innerText = (Number(updElement.getAttribute("js_value"))+1) + ' people liked this.';
-    }, {once: true});
-    this.createDOMElement(elementCommentsOutputRowRightContentActionsLike, "p", numLikes + '  people liked this.', ["type__commentsOutput", "type__commentsOutput--date"],[{name: "id" , value: 'like_' + numID},{name: "js_value", value: numLikes}]);
-    let elementCommentsOutputRowRightContentActionsDelete = this.createDOMElement(elementCommentsOutputRowRightContentActions, "div", "", ["comments__output__row__right__content__actions__delete"]);
-    let elementCommentsOutputRowRightContentActionsDeleteImg = this.createDOMElement(elementCommentsOutputRowRightContentActionsDelete, "img", "", ["type__actionButton"], [{name:"src", value:"./assets/icons/svg/icon-delete.svg"}, {name:"alt", value:"delete"}]);
-    elementCommentsOutputRowRightContentActionsDeleteImg.addEventListener("click", async () => { 
-      await bioAPI.deleteComment(numID); 
-      bandsiteComments.clearPage(); 
-      bandsiteComments.loadComments(); 
-    }, {once: true});
-    this.createDOMElement(elementCommentsOutputRowRightContentActionsDelete, "p", "Delete", ["type__commentsOutput", "type__commentsOutput--date"]);
+    this.setDOM(elOutputRowRightContentActionsLike, "p", numLikes + "  people liked this.", ["type__commentsOutput", "type__commentsOutput--date"], [{ name: "id", value: "like_" + numID }, { name: "js_value", value: numLikes },]);
+    let elOutputRowRightContentActionsDelete = this.setDOM(elOutputRowRightContentActions, "div", "", ["comments__output__row__right__content__actions__delete"]);
+    let elOutputRowRightContentActionsDeleteImg = this.setDOM(elOutputRowRightContentActionsDelete, "img", "", ["type__actionButton"], [ { name: "src", value: "./assets/icons/svg/icon-delete.svg" }, { name: "alt", value: "delete" }, ]);
+    elOutputRowRightContentActionsDeleteImg.addEventListener("click", async () => {
+        await bioAPI.deleteComment(numID);
+        bandsiteComments.clearPage();
+        bandsiteComments.loadComments();
+      }, { once: true } );
+    this.setDOM(elOutputRowRightContentActionsDelete, "p", "Delete", ["type__commentsOutput", "type__commentsOutput--date"]);
   },
 };
 
@@ -135,15 +132,15 @@ const bandsiteForm = {
       let inputName = document.getElementById("formCommentsNameInput");
       let inputComment = document.getElementById("formCommentsCommentInput");
       let inputImg = document.getElementById("formCommentsUserImage");
-      let response = await bioAPI.postComment({comment: inputComment.value, name: inputName.value});
+      let response = await bioAPI.postComment({ comment: inputComment.value, name: inputName.value });
 
       if (response.id !== "") {
         inputName.value = "";
         inputComment.value = "";
         bandsiteComments.clearPage();
         bandsiteComments.loadComments();
-      } else{
-        alert("Something when wrong. Unable to post comment! ")
+      } else {
+        alert("Something when wrong. Unable to post comment! ");
       }
     }
   },
@@ -175,15 +172,7 @@ const bandsiteUtils = {
     let YEAR_MS = 12 * MONTH_MS;
 
     let lookup = {
-      plural: [
-        "years",
-        "months",
-        "weeks",
-        "days",
-        "hours",
-        "minutes",
-        "seconds",
-      ],
+      plural: ["years", "months", "weeks", "days", "hours", "minutes", "seconds"],
       singular: ["year", "month", "week", "day", "hour", "minute", "second"],
       maxValues: [999, 12, 4, 30, 24, 60, 60],
       values: [],
@@ -226,12 +215,7 @@ const bandsiteUtils = {
       }
 
       // This block allows the appending of the next lower time unit if relevant conditions are met by allowing the loop to contine one more time
-      if (
-        lookup.values[i] - Math.floor(lookup.values[i]) > 0 &&
-        Math.floor(lookup.values[i + 1] > 0) &&
-        lookup.maxValues[i + 1] != Math.floor(lookup.values[i + 1]) &&
-        terminate == false
-      ) {
+      if (lookup.values[i] - Math.floor(lookup.values[i]) > 0 && Math.floor(lookup.values[i + 1] > 0) && lookup.maxValues[i + 1] != Math.floor(lookup.values[i + 1]) && terminate == false) {
         prettyTime += " and ";
         terminate = true;
         continue;
@@ -246,8 +230,6 @@ const bandsiteUtils = {
     }
   },
 };
-
-
 
 // On page load, load default comments
 bandsiteComments.loadComments();
