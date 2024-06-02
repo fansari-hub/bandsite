@@ -183,7 +183,7 @@
                 padding-right: 0px;
             }
             @include commentSpacing;
-            &:hover{
+            &:hover:not(.shows__output__row--active){
                 @include displayDesktop{                
                     background-color: $colSecondary-Albaster;
                 }

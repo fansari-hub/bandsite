@@ -59,7 +59,7 @@ const bandsiteShows = {
 
     let parentElement = document.getElementById("showsOutputContainer");
 
-    if (isfirstRow == true){
+    if (isfirstRow === true){
       let elOutputLabels = this.setDOM(parentElement, "div", "", ["shows__output__label"]);
       let elOutputLabelCol1 = this.setDOM(elOutputLabels, "div", "", ["shows__output__label__col"]);
       this.setDOM(elOutputLabelCol1, "p", "Date", ["type__label"]);

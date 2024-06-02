@@ -1010,17 +1010,17 @@ html {
   }
 }
 @media (min-width: 1280px) {
-  .shows__output__row:hover {
+  .shows__output__row:hover:not(.shows__output__row--active) {
     background-color: #FAFAFA;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
-  .shows__output__row:hover {
+  .shows__output__row:hover:not(.shows__output__row--active) {
     background-color: #FAFAFA;
   }
 }
 @media (min-width: 0px) and (max-width: 767px) {
-  .shows__output__row:hover {
+  .shows__output__row:hover:not(.shows__output__row--active) {
     background-color: none;
   }
 }
